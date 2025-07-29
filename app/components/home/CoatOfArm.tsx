@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -14,13 +13,13 @@ const CoatOfArmsSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Image
+          {/* <Image
             src="/assets/logo.jpg"
             alt="Archdiocese Coat of Arms"
             width={150}
             height={300}
             className="w-auto h-auto"
-          />
+          /> */}
         </motion.div>
 
         {/* Right Text */}
