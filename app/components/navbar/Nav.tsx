@@ -26,16 +26,16 @@ const navLinks: NavItem[] = [
       // { label: 'Marketing', href: '/services/marketing' },
     ],
   },
-  {
-    label: 'Projects',
-    href: '/projects',
-    subItems: [
-      { label: 'Portfolio', href: '/projects/portfolio' },
-      { label: 'Clients', href: '/projects/clients' },
-      { label: 'Case Studies', href: '/projects/case-studies' },
-      { label: 'Testimonials', href: '/projects/testimonials' },
-    ],
-  },
+  // {
+  //   label: 'Projects',
+  //   href: '/projects',
+  //   subItems: [
+  //     { label: 'Portfolio', href: '/projects/portfolio' },
+  //     { label: 'Clients', href: '/projects/clients' },
+  //     { label: 'Case Studies', href: '/projects/case-studies' },
+  //     { label: 'Testimonials', href: '/projects/testimonials' },
+  //   ],
+  // },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ];
