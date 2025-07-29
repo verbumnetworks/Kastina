@@ -1,13 +1,12 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const CoatOfArmsSection = () => {
   return (
     <section className=" relative w-full text-white py-12 px-4 md:px-16 overflow-hidden bg-blue-900">
-
       <div className="max-w-6xl mx-auto flex flex-col z-10 relative justify-center md:flex-row items-center gap-10">
         {/* Left Image */}
         <motion.div
@@ -35,14 +34,20 @@ const CoatOfArmsSection = () => {
             Diocese of Kaastina Coat of Arms
           </h2>
           <p className="text-gray-100 mb-4">
-            The arms of the Archdiocese of Sydney are displayed with the mitre preciosa but neither the crosier nor the cross is used.
+            Coats of arms, originating in Europe during the late 11th century,
+            were initially employed on the battlefield for warriors to
+            distinguish their comrades. These same symbols were later utilised
+            on seals to verify the authenticity of documents. The Catholic
+            Church also used seals to establish legitimacy and ownership. These
+            seals evolved from personal likenesses to impersonal shields
+            representing dioceses. Martial helmets and coronets were replaced
+            with ecclesiastical hats, retaining the shield.
           </p>
-          <ul className="list-disc list-inside text-gray-100 space-y-2 mb-4">
-            <li>The cross is reference to the crucifixion of Jesus Christ,</li>
-            <li>The stars of the Southern Cross constellation reinforce this crucifixion imagery and refer to its location.</li>
-            <li>The colour blue in the field of the arms of the Archdiocese traditionally represents the Virgin.</li>
-          </ul>
-          <Link href="/coat" className="text-yellow-400 hover:underline font-semibold">
+
+          <Link
+            href="/coat"
+            className="text-yellow-400 hover:underline font-semibold"
+          >
             READ MORE
           </Link>
         </motion.div>
