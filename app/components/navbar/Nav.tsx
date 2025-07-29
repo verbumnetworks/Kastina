@@ -22,20 +22,8 @@ const navLinks: NavItem[] = [
     subItems: [
       { label: 'Our Bishiop', href: '/bishop' },
       { label: 'Priets and Religious', href: '/clergy' },
-      // { label: 'SEO', href: '/services/seo' },
-      // { label: 'Marketing', href: '/services/marketing' },
     ],
   },
-  // {
-  //   label: 'Projects',
-  //   href: '/projects',
-  //   subItems: [
-  //     { label: 'Portfolio', href: '/projects/portfolio' },
-  //     { label: 'Clients', href: '/projects/clients' },
-  //     { label: 'Case Studies', href: '/projects/case-studies' },
-  //     { label: 'Testimonials', href: '/projects/testimonials' },
-  //   ],
-  // },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -63,7 +51,7 @@ const Navbar = () => {
 
       <div className={`transition-all duration-300 ease-in-out w-full ${isSticky ? 'bg-white shadow-md' : 'bg-[#CFAB7A6E]'}`}>
         <nav className="flex items-center justify-between px-4 py-4 lg:px-12">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
             <Image src="/assets/logo.jpg" alt="Logo" width={40} height={40} className="h-8 w-8 object-contain rounded-full" />
             <span className="sr-only">Home</span>
           </Link>
@@ -124,7 +112,7 @@ const Navbar = () => {
                   {item.subItems ? (
                     <>
                       <div className="flex justify-between items-center">
-                        <Link href={item.href || '#'}>{item.label}</Link>
+                        <Link href={item.href || '#'} onClick={() => setMobileOpen(false)}>{item.label}</Link>
                         <button onClick={() => toggleDropdown(item.label)}>
                           <IoIosArrowDown />
                         </button>
@@ -139,7 +127,7 @@ const Navbar = () => {
                           >
                             {item.subItems.map((sub) => (
                               <li key={sub.href}>
-                                <Link href={sub.href} className="block py-1">
+                                <Link href={sub.href} className="block py-1" onClick={() => setMobileOpen(false)}>
                                   {sub.label}
                                 </Link>
                               </li>
@@ -149,7 +137,9 @@ const Navbar = () => {
                       </AnimatePresence>
                     </>
                   ) : (
-                    <Link href={item.href!}>{item.label}</Link>
+                    <Link href={item.href!} onClick={() => setMobileOpen(false)}>
+                      {item.label}
+                    </Link>
                   )}
                 </li>
               ))}

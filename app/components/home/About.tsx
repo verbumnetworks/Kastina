@@ -27,38 +27,43 @@ export default function OurVision() {
             OUR VISION
           </h2>
           <p className="text-gray-700 text-base leading-relaxed">
-            My hope is for a Church in which the Gospel is preached with joy,
-            the wisdom of our tradition mined with fidelity, the sacraments
-            celebrated with dignity and welcome, and the seminaries, convents
-            and youth groups teeming with new life; a Church in which our
-            parishes, chaplaincies and educational institutions are true centres
-            of the new evangelisation, our laity theologically literate and
-            spiritually well-formed, our outreach to the needy effective and
-            growing, and God glorified above all. That will depend hugely on
-            three factors: our clergy and religious; our families; and our young
-            people.
+            The announcement of the creation of the new Ecclesiastical
+            jurisdiction known as Catholic Diocese of Katsina was conveyed to
+            the world on Monday, 16th October 2023 from the Vatican. In doing
+            so, His Holiness Pope Benedict announced the appointment of Reverend
+            Monsignor Gerald Mamman Musa as its first Bishop, hitherto, an
+            Associate Professor of Communications at the Catholic Institute of
+            West Africa, CIWA, PortHarcourt. By this decision, the former
+            Diocese of Sokoto which comprised Katsina, Kebbi, Sokoto and Zamfara
+            has now been split. The new Diocese of Katsina now covers Katsina
+            state and Kaura Namoda (a part of Zamfara State) which is about 25,
+            060 km2 (9,676 sa mi) - located in the North-West region of northern
+            Nigeria. The history of the new Diocese of Katsina is interwoven
+            with that of the Catholic Diocese of Sokoto. It stretches back
+            peripherally in 1870. When two Franciscan Priests from Agadez (Niger
+            Republic) were said to have traveled down to the areas that now make
+            up part of Katsina today.
           </p>
           <p className="italic text-gray-600">
-            Archbishop Anthony Fisher OP, <br />
-            Homily for the Mass of Installation
+           Most Reverend Gerald Mamman Musa  <br />
           </p>
-          <motion.button
+          {/* <motion.button
             className="mt-6 px-6 py-2 bg-gradient-to-r from-[#B59F6C] to-[#CBC2AE] text-white font-semibold rounded shadow transition-all ease-in-out"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
           >
             READ MORE
-          </motion.button>
+          </motion.button> */}
         </motion.div>
 
         {/* Right Side - Grid of Four Blocks (spans 2 columns) */}
         <div className="grid grid-cols-2 gap-4">
           {[
-            { label: "OUR PEOPLE", img: "/assets/popeleo1.jpeg" },
-            { label: "OUR YOUTH", img: "/assets/popeleo2.jpeg" },
-            { label: "ST MARY’S CATHEDRAL", img: "/assets/popeleo3.jpeg" },
-            { label: "EDUCATION", img: "/assets/popeleo.jpeg" },
+            { label: "OUR PEOPLE", img: "/assets/building2.jpg" },
+            { label: "OUR YOUTH", img: "/assets/groto.jpg" },
+            { label: "CATHEDRAL", img: "/assets/building1.jpg" },
+            { label: "EDUCATION", img: "/assets/building3.jpg" },
           ].map(({ label, img }, i) => (
             <motion.div
               key={label}
