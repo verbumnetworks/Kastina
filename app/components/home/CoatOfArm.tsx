@@ -30,10 +30,10 @@ const CoatOfArmsSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-            Diocese of Kaastina Coat of Arms
+            Diocese of Kastina Coat of Arms
           </h2>
           <p className="text-gray-100 mb-4">
-            Coats of arms, originating in Europe during the late 11th century,
+            Coat of arms, originating in Europe during the late 11th century,
             were initially employed on the battlefield for warriors to
             distinguish their comrades. These same symbols were later utilised
             on seals to verify the authenticity of documents. The Catholic
