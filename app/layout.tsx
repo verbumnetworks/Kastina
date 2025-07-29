@@ -1,20 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Footer } from "./components/footer/Footer";
+import Nav from "./components/navbar/Nav";
+import FaithBanner from "./components/faith/FaithBanner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 export const metadata: Metadata = {
-  title: "Catholic Diosese of Kastina",
-  description: "Catholic Diosese of Kastina",
+  title: "Catholic Diocese of Kastina",
+  description: "Catholic Diocese of Kastina",
 };
 
 export default function RootLayout({
@@ -25,9 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`$ antialiased`}
       >
+        <Nav/>
         {children}
+        <FaithBanner/>
+        <Footer/>
       </body>
     </html>
   );
