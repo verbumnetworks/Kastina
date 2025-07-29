@@ -108,7 +108,7 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <div className="hidden md:flex items-center gap-4 text-primary text-lg">
+          <div className="hidden md:flex items-center gap-4 text-lg">
             <a href="#" aria-label="Facebook"><FaFacebookF /></a>
             <a href="#" aria-label="Twitter"><FaTwitter /></a>
             <a href="#" aria-label="LinkedIn"><FaLinkedinIn /></a>
