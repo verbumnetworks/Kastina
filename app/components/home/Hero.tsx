@@ -70,7 +70,7 @@ export default function HeroCarousel() {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="flex flex-col-reverse md:flex-row w-full h-full items-stretch">
+            <div className="flex flex-col-reverse md:flex-row w-full h-full ">
               {/* Text Content */}
               <div className="flex-1 flex flex-col justify-center items-center text-center px-6 md:px-16 bg-white">
                 <motion.h2
@@ -111,7 +111,7 @@ export default function HeroCarousel() {
               </div>
 
               {/* Image Content */}
-              <div className="flex-1 relative w-full h-[250px] md:h-full">
+              <div className="flex-1 relative w-full h-[40vh] md:h-full">
                 <Image
                   src={slide.image}
                   alt={slide.title}

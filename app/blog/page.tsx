@@ -1,11 +1,13 @@
-"use client";
-
+ 
 import { FC } from "react";
 import BlogCard from "./BlogCard"; // adjust the path
-import { blogs } from "@/lib/blog";
+// import { blogs } from "@/lib/blog";
 import PageBanner from "../components/banner/PageBanner";
+import prisma from "@/lib/prisma";
 
-const BlogPage: FC = () => {
+const BlogPage: FC = async () => {
+  const blogs = await prisma.blog.findMany();
+ 
   return (
     <div>
       <PageBanner 

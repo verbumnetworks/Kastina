@@ -1,20 +1,18 @@
-'use client';
-
-import { use } from 'react';
-import { blogs } from '@/lib/blog';
 import BlogDetails from '../BlogDetails';
 import { notFound } from 'next/navigation';
+import prisma from '@/lib/prisma';
 
-export default function BlogPage({
+export default async function BlogPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = use(params); // ✅ unwrap promise
+  const { id } =await params;
 
-  // If your blog IDs are numbers, convert
-  const blog = blogs.find((b) => b.id === Number(id));
-
+  const blogId = Number(id)
+  const blog =await prisma.blog.findUnique({
+    where: { id: blogId },
+  });
   if (!blog) return notFound();
 
   return <BlogDetails blog={blog} />;

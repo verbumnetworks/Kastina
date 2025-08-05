@@ -1,14 +1,10 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { Blog } from '@/types/blog';
+import { Blog } from "@/lib/generated/prisma";
+import Image from "next/image";
+import Link from "next/link";
 
-interface BlogDetailProps {
-  blog: Blog;
-}
-
-export default function BlogDetails({ blog }: BlogDetailProps) {
+export default function BlogDetails({ blog }: { blog: Blog }) {
   return (
     <article className="max-w-3xl mx-auto  p-6 pt-28 md:pt-32">
       {/* Back Button */}
@@ -36,7 +32,7 @@ export default function BlogDetails({ blog }: BlogDetailProps) {
       </div>
 
       {/* Blog Date */}
-      <p className="text-sm text-gray-500 mb-6">{blog.date}</p>
+      <p className="text-sm text-gray-500 mb-6">{blog.date.toDateString()}</p>
 
       {/* Blog Content */}
       <div className="prose prose-lg text-gray-700 leading-relaxed max-w-none">
