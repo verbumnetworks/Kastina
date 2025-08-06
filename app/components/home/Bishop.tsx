@@ -16,7 +16,7 @@ const BishopSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-2xl md:text-4xl text-center font-bold mb-4 text-gray-900">
-            Welcome to Catholic Diocese Katsina
+            Welcome Address
           </h2>
           <p className="text-gray-800 mb-6">
             On behalf of the Diocese, we warmly welcome you to our online home.
@@ -24,7 +24,7 @@ const BishopSection = () => {
             committed to nurturing faith, fostering unity, and serving our
             communities with love and compassion. May this space be a source of
             inspiration, connection, and renewal for all who visit. Whether
-            you're seeking spiritual growth, community engagement, or simply a
+            you are seeking spiritual growth, community engagement, or simply a
             place to belong—know that you are welcome here. “Let all that you do
             be done in love.” — 1 Corinthians 16:14
           </p>

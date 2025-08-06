@@ -16,18 +16,17 @@ export const Footer = () => {
               className="h-15 w-15 rounded-full mb-4"
             />
           </Link>
-          <p className="text-md text-center">
-         Catholic <br /> Diocese Of katsina.
-          </p>
-          
+          <p className="text-md text-center">Catholic Diocese Of Katsina</p>
         </div>
 
         <div>
-          <h2 className="text-white text-lg font-bold mb-2">Catholic Diocese of katsina</h2>
+          <h2 className="text-white text-lg font-bold mb-2">
+            Catholic Diocese of katsina
+          </h2>
           <p className="text-sm mb-4">
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ipsa magnam quod. Quia hic atque dolorum nobis eum, nostrum accusanti
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ipsa
+            magnam quod. Quia hic atque dolorum nobis eum, nostrum accusanti
           </p>
-         
         </div>
 
         <div>
@@ -59,10 +58,10 @@ export const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li>1 - 3 katsina street</li>
             <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit</li>
-            <li>+23490577888757</li>
-            <li>example@katsina.com</li>
+            <li>+234 810 646 4244</li>
+            <li>cathdiokatcomm@gmail.com</li>
           </ul>
-           <div className="flex gap-4 mt-2 text-center items-center justify-center">
+          <div className="flex gap-4 mt-2 text-center items-center justify-center">
             <FaFacebook />
             <FaTwitter />
             <FaLinkedin />
@@ -71,9 +70,16 @@ export const Footer = () => {
       </div>
 
       <p className="text-center text-sm text-gray-300 mt-12">
-        &copy; {new Date().getFullYear()} Catholic Diocese Of katsina. All rights
-        reserved — Website Devloped by 
-          <Link href="https://verbumnetworksenugu.com" target="_blank" className="text-red-300 italic"> Verbum Networks Limited Enugu.</Link>
+        &copy; {new Date().getFullYear()} Catholic Diocese Of katsina. All
+        rights reserved — Website Devloped by
+        <Link
+          href="https://verbumnetworksenugu.com"
+          target="_blank"
+          className="text-red-300 italic"
+        >
+          {" "}
+          Verbum Networks Limited Enugu.
+        </Link>
       </p>
     </footer>
   );

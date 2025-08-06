@@ -1,11 +1,15 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
-import { IoIosArrowDown, IoMdMenu, IoMdClose } from 'react-icons/io';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
+import { IoIosArrowDown, IoMdMenu, IoMdClose } from "react-icons/io";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface NavItem {
   label: string;
@@ -14,19 +18,19 @@ interface NavItem {
 }
 
 const navLinks: NavItem[] = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Catechetical', href: '/catechetical' },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Catechetical", href: "/catechetical" },
   {
-    label: 'Our People',
-    href: '/people',
+    label: "Our People",
+    href: "/people",
     subItems: [
-      { label: 'Our Bishiop', href: '/bishop' },
-      { label: 'Priets and Religious', href: '/clergy' },
+      { label: "Our Bishiop", href: "/bishop" },
+      { label: "Priets and Religious", href: "/clergy" },
     ],
   },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/contact' },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -36,8 +40,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => setIsSticky(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleDropdown = (label: string) => {
@@ -47,17 +51,36 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-md">
       <div className="w-full bg-gray-100 py-2 text-center">
-        <h1 className="text-2xl md:text-4xl font-semibold text-gray-800">Catholic Diocese of katsina.</h1>
+        <h1 className="text-2xl md:text-4xl font-semibold text-gray-800">
+          Catholic Diocese of Katsina
+        </h1>
       </div>
 
-      <div className={`transition-all duration-300 ease-in-out w-full ${isSticky ? 'bg-white shadow-md' : 'bg-[#CFAB7A6E]'}`}>
+      <div
+        className={`transition-all duration-300 ease-in-out w-full ${
+          isSticky ? "bg-white shadow-md" : "bg-[#CFAB7A6E]"
+        }`}
+      >
         <nav className="flex items-center justify-between px-4 py-4 lg:px-12">
-          <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-            <Image src="/assets/logo.jpg" alt="Logo" width={40} height={40} className="h-8 w-8 object-contain rounded-full" />
+          <Link
+            href="/"
+            className="flex items-center gap-2"
+            onClick={() => setMobileOpen(false)}
+          >
+            <Image
+              src="/assets/logo.jpg"
+              alt="Logo"
+              width={40}
+              height={40}
+              className="h-8 w-8 object-contain rounded-full"
+            />
             <span className="sr-only">Home</span>
           </Link>
 
-          <button className="md:hidden text-2xl" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button
+            className="md:hidden text-2xl"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
             {mobileOpen ? <IoMdClose /> : <IoMdMenu />}
           </button>
 
@@ -67,8 +90,11 @@ const Navbar = () => {
                 {item.subItems ? (
                   <>
                     <div className="flex items-center gap-1 cursor-pointer">
-                      <Link href={item.href || '#'}>{item.label}</Link>
-                      <button onClick={() => toggleDropdown(item.label)} aria-label="toggle submenu">
+                      <Link href={item.href || "#"}>{item.label}</Link>
+                      <button
+                        onClick={() => toggleDropdown(item.label)}
+                        aria-label="toggle submenu"
+                      >
                         <IoIosArrowDown />
                       </button>
                     </div>
@@ -82,7 +108,10 @@ const Navbar = () => {
                           className="absolute left-0 mt-2 w-44 rounded bg-white shadow-md z-10"
                         >
                           {item.subItems.map((sub) => (
-                            <li key={sub.href} className="px-4 py-2 hover:bg-gray-100">
+                            <li
+                              key={sub.href}
+                              className="px-4 py-2 hover:bg-gray-100"
+                            >
                               <Link href={sub.href}>{sub.label}</Link>
                             </li>
                           ))}
@@ -98,9 +127,24 @@ const Navbar = () => {
           </ul>
 
           <div className="hidden md:flex items-center gap-4 text-lg">
-            <a href="#" aria-label="Facebook"><FaFacebookF /></a>
-            <a href="#" aria-label="Twitter"><FaTwitter /></a>
-            <a href="#" aria-label="LinkedIn"><FaLinkedinIn /></a>
+            <a
+              href="https://www.facebook.com/share/1649DPp6zj/"
+              aria-label="Facebook"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="https://www.instagram.com/cathdiokatcom?igsh=aGtmNzZpZmd5Ynln"
+              aria-label="Instagram"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://www.youtube.com/@katsinacatholicdiocese?si=YWujbpQeJGRAAKn4"
+              aria-label="YouTube"
+            >
+              <FaYoutube />
+            </a>
           </div>
         </nav>
 
@@ -113,7 +157,12 @@ const Navbar = () => {
                   {item.subItems ? (
                     <>
                       <div className="flex justify-between items-center">
-                        <Link href={item.href || '#'} onClick={() => setMobileOpen(false)}>{item.label}</Link>
+                        <Link
+                          href={item.href || "#"}
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {item.label}
+                        </Link>
                         <button onClick={() => toggleDropdown(item.label)}>
                           <IoIosArrowDown />
                         </button>
@@ -122,13 +171,17 @@ const Navbar = () => {
                         {dropdownOpen === item.label && (
                           <motion.ul
                             initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
+                            animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             className="pl-4 mt-2 space-y-1 border-l border-gray-300"
                           >
                             {item.subItems.map((sub) => (
                               <li key={sub.href}>
-                                <Link href={sub.href} className="block py-1" onClick={() => setMobileOpen(false)}>
+                                <Link
+                                  href={sub.href}
+                                  className="block py-1"
+                                  onClick={() => setMobileOpen(false)}
+                                >
                                   {sub.label}
                                 </Link>
                               </li>
@@ -138,16 +191,34 @@ const Navbar = () => {
                       </AnimatePresence>
                     </>
                   ) : (
-                    <Link href={item.href!} onClick={() => setMobileOpen(false)}>
+                    <Link
+                      href={item.href!}
+                      onClick={() => setMobileOpen(false)}
+                    >
                       {item.label}
                     </Link>
                   )}
                 </li>
               ))}
               <div className="flex gap-4 pt-4 border-t border-gray-300">
-                <a href="#" aria-label="Facebook"><FaFacebookF /></a>
-                <a href="#" aria-label="Twitter"><FaTwitter /></a>
-                <a href="#" aria-label="LinkedIn"><FaLinkedinIn /></a>
+                <a
+                  href="https://www.facebook.com/share/1649DPp6zj/"
+                  aria-label="Facebook"
+                >
+                  <FaFacebookF />
+                </a>
+                <a
+                  href="https://www.instagram.com/cathdiokatcom?igsh=aGtmNzZpZmd5Ynln"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram />
+                </a>
+                <a
+                  href="https://youtube.com/@katsinacatholicdiocese?si=YWujbpQeJGRAAKn4"
+                  aria-label="YouTube"
+                >
+                  <FaYoutube />
+                </a>
               </div>
             </ul>
           </div>
