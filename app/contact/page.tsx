@@ -53,7 +53,7 @@ export default function Page() {
             </div>
             <div className="flex items-start gap-4">
               <FaEnvelope className="text-[#B59F6C] mt-1" />
-              <p>info@kastina.com</p>
+              <p>info@katsina.com</p>
             </div>
             <div className="pt-4">
               <p>Follow us on social media</p>

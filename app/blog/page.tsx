@@ -1,7 +1,6 @@
  
 import { FC } from "react";
-import BlogCard from "./BlogCard"; // adjust the path
-// import { blogs } from "@/lib/blog";
+import BlogCard from "./BlogCard";
 import PageBanner from "../components/banner/PageBanner";
 import prisma from "@/lib/prisma";
 

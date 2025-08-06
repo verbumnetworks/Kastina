@@ -100,14 +100,7 @@ export default function HeroCarousel() {
                   {slide.text}
                 </motion.p>
 
-                {/* <motion.button
-                  className="mt-6 px-6 py-2 bg-gradient-to-r from-[#B59F6C] to-[#CBC2AE] text-white font-semibold rounded shadow transition-all ease-in-out"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.7 }}
-                >
-                  READ MORE
-                </motion.button> */}
+
               </div>
 
               {/* Image Content */}

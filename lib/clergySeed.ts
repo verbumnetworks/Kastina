@@ -1,4 +1,3 @@
-import { p } from "framer-motion/client";
 
 export const clergySeed = [
   {

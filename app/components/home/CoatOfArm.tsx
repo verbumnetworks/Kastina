@@ -30,7 +30,7 @@ const CoatOfArmsSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-            Diocese of Kastina Coat of Arms
+            Diocese of katsina Coat of Arms
           </h2>
           <p className="text-gray-100 mb-4">
             Coat of arms, originating in Europe during the late 11th century,

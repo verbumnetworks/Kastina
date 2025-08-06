@@ -1,8 +1,8 @@
 import About from "./components/home/About";
+import BishopSection from "./components/home/Bishop";
 import CoatOfArmsSection from "./components/home/CoatOfArm";
 import Hero from "./components/home/Hero";
 import LatestNews from "./components/home/LatestNews";
-import HomilySection from "./components/home/HomilySection";
 
 
 export default function Home() {
@@ -10,9 +10,10 @@ export default function Home() {
     <div>
       <main className="">
         <Hero />
+        <BishopSection/>
         <About />
         <LatestNews />
-        <HomilySection />
+        {/* <HomilySection /> */}
 <CoatOfArmsSection/>
       </main>
     </div>

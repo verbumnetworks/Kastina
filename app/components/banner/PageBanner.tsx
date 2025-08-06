@@ -26,7 +26,7 @@ export default function PageBanner({
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-gray-900 opacity-80" />
 
       {/* Text Content */}
       <motion.div

@@ -1,7 +1,7 @@
 // lib/userSeed.ts
 // import type { User } from ';
 
-import { User } from "./generated/prisma";
+import { User } from "@prisma/client";
 
 export const users: Omit<User, 'id' | 'createdAt' | 'updatedAt'>[] = [
   {

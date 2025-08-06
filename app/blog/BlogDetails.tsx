@@ -1,6 +1,4 @@
-"use client";
-
-import { Blog } from "@/lib/generated/prisma";
+import { Blog } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 

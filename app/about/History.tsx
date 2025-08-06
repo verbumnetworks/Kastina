@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Link from "next/link";
+// import Link from "next/link";
+import ButtonLink from "../components/button/Button";
 
 const counters = [
   { label: "CATHOLICS", value: 590000, suffix: "k", display: 590 },
@@ -88,14 +89,12 @@ const HistorySection = () => {
               Catholic Diocese of Sokoto. It stretches back peripherally in
               1870.
             </p>
-            <Link href="/history">
-              <button className="mt-2 border border-yellow-500 text-yellow-600 px-6 py-3 font-semibold text-sm tracking-widest uppercase hover:bg-yellow-600 hover:text-white transition">
-                Find Out More
-              </button>
-            </Link>
+          <ButtonLink href="/history" label="Find Out More" variant="secondary" />
+
           </motion.div>
         </div>
       </section>
+      
 
       {/* COUNTER SECTION */}
       <section className="bg-neutral-900 py-10">

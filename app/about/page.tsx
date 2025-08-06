@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import PageBanner from '../components/banner/PageBanner'; 
 import HistorySection from './History';
 import DeaneriesSection from './Parishes';
+import PoliciesSection from './PoliciesSection';
 
 const ministries = [
   {
@@ -35,6 +36,7 @@ export default function page() {
       />
       <HistorySection />
       <DeaneriesSection/>
+      <PoliciesSection />
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 bg-[#0C3E66]  py-16 px-4">
         {ministries.map(({ title, img, link }, index) => (
           <motion.div

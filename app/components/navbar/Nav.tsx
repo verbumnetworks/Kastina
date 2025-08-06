@@ -16,6 +16,7 @@ interface NavItem {
 const navLinks: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
+  { label: 'Catechetical', href: '/catechetical' },
   {
     label: 'Our People',
     href: '/people',
@@ -46,7 +47,7 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-md">
       <div className="w-full bg-gray-100 py-2 text-center">
-        <h1 className="text-2xl md:text-4xl font-semibold text-gray-800">Catholic Diocese of Kastina.</h1>
+        <h1 className="text-2xl md:text-4xl font-semibold text-gray-800">Catholic Diocese of katsina.</h1>
       </div>
 
       <div className={`transition-all duration-300 ease-in-out w-full ${isSticky ? 'bg-white shadow-md' : 'bg-[#CFAB7A6E]'}`}>
