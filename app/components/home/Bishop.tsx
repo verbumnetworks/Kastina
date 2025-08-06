@@ -19,21 +19,14 @@ const BishopSection = () => {
             Welcome to Catholic Diocese Katsina
           </h2>
           <p className="text-gray-800 mb-6">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, minus
-            sapiente quos, facere optio dignissimos mollitia culpa maxime neque
-            vero voluptatum incidunt omnis consectetur? Distinctio ipsum commodi
-            asperiores dicta vero? Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Perspiciatis expedita asperiores ullam ipsa, esse
-            quaerat inventore, error eaque consequuntur qui autem est dolores
-            itaque ea culpa maxime similique nemo iure? Lorem ipsum dolor, sit
-            amet consectetur adipisicing elit. Amet, aperiam ad saepe voluptatem
-            aspernatur eveniet asperiores laboriosam esse. Reiciendis nesciunt
-            beatae, eveniet voluptate nam blanditiis. Libero eaque corrupti cum
-            veniam.lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Quisquam, voluptatum. Doloribus, cumque! Quasi, nobis. Doloribus,
-            cumque! Quasi, nobis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Quisquam, voluptatum. Doloribus, cumque! Quasi,
-            nobis. Doloribus, cumque! Quasi, nobis.
+            On behalf of the Diocese, we warmly welcome you to our online home.
+            Under the spiritual guidance of our beloved Bishop, we remain
+            committed to nurturing faith, fostering unity, and serving our
+            communities with love and compassion. May this space be a source of
+            inspiration, connection, and renewal for all who visit. Whether
+            you're seeking spiritual growth, community engagement, or simply a
+            place to belong—know that you are welcome here. “Let all that you do
+            be done in love.” — 1 Corinthians 16:14
           </p>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
