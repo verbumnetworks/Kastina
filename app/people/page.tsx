@@ -80,12 +80,12 @@ export default function OurPeoplePage() {
 
       {/* Team Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
+        {/* <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl font-bold mb-4 text-center">Our Entire Team</h2>
           <p className="text-center text-gray-600 mb-10">
             Meet the amazing people behind Verbum Networks Ltd.
           </p>
-        </div>
+        </div> */}
 
         <div className="w-full flex flex-wrap justify-center gap-8 px-4">
           {team.map((member, index) => (

@@ -3,32 +3,49 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
-import {IoMdMenu, IoMdClose } from "react-icons/io";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
+import { IoMdMenu, IoMdClose } from "react-icons/io";
+
 interface NavItem {
+  id: number;
   label: string;
-  href: string;
+  href?: string;
+  subItems?: { label: string; href: string }[];
 }
 
 const navLinks: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Catechetical", href: "/catechetical" },
+  { id: 1,
+    label: "Home",
+     href: "/" },
+  { id:2,
+    label: "About",
+     href: "/about" 
+    },
+  { id:3,
+    label: "Catechetical",
+    href: "/catechetical" },
   {
+    id: 4,
     label: "Our People",
     href: "/people",
+   
   },
-  { label: "Our Bishiop", href: "/bishop" },
-
-  { label: "Priets and Religious", href: "/clergy" },
-  { label: "Events", href: "/events" },
-
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  { id:5,
+    label: "Blog",
+    href: "/blog" 
+  },
+  { id:6,
+    label: "Contact", 
+    href: "/contact" },
 ];
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
+  // const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -37,7 +54,9 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
+  // const toggleDropdown = (label: string) => {
+  //   setDropdownOpen((prev) => (prev === label ? null : label));
+  // };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-md">
@@ -77,7 +96,15 @@ const Navbar = () => {
 
           <ul className="hidden md:flex items-center gap-6 text-lg font-bold text-gray-800">
             {navLinks.map((item) => (
-              <li key={item.label} className="relative group"></li>
+              <li key={item.id} className="relative group">
+               
+                    <div className="flex items-center gap-1 cursor-pointer">
+                      <Link href={item.href || "#"}>{item.label}</Link>
+                    
+                    </div>
+                    
+              
+              </li>
             ))}
           </ul>
 
@@ -100,18 +127,28 @@ const Navbar = () => {
             >
               <FaYoutube />
             </a>
-          </div>
+          </div> 
         </nav>
 
         {/* Mobile Menu */}
-        {mobileOpen && (
+         {mobileOpen && (
           <div className="md:hidden px-4 pb-4">
             <ul className="flex flex-col gap-4 text-gray-800 text-base font-medium">
               {navLinks.map((item) => (
-                <li key={item.label} className="relative">
-                  <Link href={item.href!} >
-                    {item.label}
-                  </Link>
+                <li key={item.id} className="relative">
+                
+                      <div className="flex justify-between items-center">
+                        <Link
+                          href={item.href || "#"}
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {item.label}
+                        </Link>
+                        
+                      </div>
+                     
+            
+              
                 </li>
               ))}
               <div className="flex gap-4 pt-4 border-t border-gray-300">
@@ -136,7 +173,7 @@ const Navbar = () => {
               </div>
             </ul>
           </div>
-        )}
+        )} 
       </div>
     </header>
   );
