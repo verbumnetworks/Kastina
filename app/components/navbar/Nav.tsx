@@ -40,6 +40,12 @@ const navLinks: NavItem[] = [
   { id:6,
     label: "Contact", 
     href: "/contact" },
+
+{
+  id: 7,
+  label: "Gallery",
+  href: "/gallery"
+}
 ];
 
 const Navbar = () => {
