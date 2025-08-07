@@ -3,18 +3,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { IoIosArrowDown, IoMdMenu, IoMdClose } from "react-icons/io";
 import { AnimatePresence, motion } from "framer-motion";
 
 interface NavItem {
   label: string;
   href?: string;
-  subItems?: { label: string; href: string }[];
 }
 
 const navLinks: NavItem[] = [
@@ -24,18 +19,18 @@ const navLinks: NavItem[] = [
   {
     label: "Our People",
     href: "/people",
-    subItems: [
-      { label: "Our Bishiop", href: "/bishop" },
-      { label: "Priets and Religious", href: "/clergy" },
-    ],
   },
+  { label: "Our Bishiop", href: "/bishop" },
+
+  { label: "Priets and Religious", href: "/clergy" },
+  { label: "Events", href: "/events" },
+
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -44,9 +39,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleDropdown = (label: string) => {
-    setDropdownOpen((prev) => (prev === label ? null : label));
-  };
+
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-md">
@@ -86,43 +79,7 @@ const Navbar = () => {
 
           <ul className="hidden md:flex items-center gap-6 text-lg font-bold text-gray-800">
             {navLinks.map((item) => (
-              <li key={item.label} className="relative group">
-                {item.subItems ? (
-                  <>
-                    <div className="flex items-center gap-1 cursor-pointer">
-                      <Link href={item.href || "#"}>{item.label}</Link>
-                      <button
-                        onClick={() => toggleDropdown(item.label)}
-                        aria-label="toggle submenu"
-                      >
-                        <IoIosArrowDown />
-                      </button>
-                    </div>
-                    <AnimatePresence>
-                      {dropdownOpen === item.label && (
-                        <motion.ul
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute left-0 mt-2 w-44 rounded bg-white shadow-md z-10"
-                        >
-                          {item.subItems.map((sub) => (
-                            <li
-                              key={sub.href}
-                              className="px-4 py-2 hover:bg-gray-100"
-                            >
-                              <Link href={sub.href}>{sub.label}</Link>
-                            </li>
-                          ))}
-                        </motion.ul>
-                      )}
-                    </AnimatePresence>
-                  </>
-                ) : (
-                  <Link href={item.href!}>{item.label}</Link>
-                )}
-              </li>
+              <li key={item.label} className="relative group"></li>
             ))}
           </ul>
 
@@ -154,50 +111,9 @@ const Navbar = () => {
             <ul className="flex flex-col gap-4 text-gray-800 text-base font-medium">
               {navLinks.map((item) => (
                 <li key={item.label} className="relative">
-                  {item.subItems ? (
-                    <>
-                      <div className="flex justify-between items-center">
-                        <Link
-                          href={item.href || "#"}
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                        <button onClick={() => toggleDropdown(item.label)}>
-                          <IoIosArrowDown />
-                        </button>
-                      </div>
-                      <AnimatePresence>
-                        {dropdownOpen === item.label && (
-                          <motion.ul
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="pl-4 mt-2 space-y-1 border-l border-gray-300"
-                          >
-                            {item.subItems.map((sub) => (
-                              <li key={sub.href}>
-                                <Link
-                                  href={sub.href}
-                                  className="block py-1"
-                                  onClick={() => setMobileOpen(false)}
-                                >
-                                  {sub.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </motion.ul>
-                        )}
-                      </AnimatePresence>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href!}
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
+                  <Link href={item.href!} >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
               <div className="flex gap-4 pt-4 border-t border-gray-300">
