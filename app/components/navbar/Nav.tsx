@@ -4,12 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
-import { IoIosArrowDown, IoMdMenu, IoMdClose } from "react-icons/io";
-import { AnimatePresence, motion } from "framer-motion";
-
+import {IoMdMenu, IoMdClose } from "react-icons/io";
 interface NavItem {
   label: string;
-  href?: string;
+  href: string;
 }
 
 const navLinks: NavItem[] = [
