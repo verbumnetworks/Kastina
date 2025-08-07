@@ -69,7 +69,7 @@ const HistorySection = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               A BRIEF HISTORY OF THE DIOCESE.
             </h2>
-            <p className="text-gray-700 mb-4">
+            <p className="text-gray-700 mb-4 text-justify leading-relaxed">
               The announcement of the creation of the new Ecclesiastical
               jurisdiction known as Catholic Diocese of Katsina was conveyed to
               the world on Monday, 16th October 2023 from the Vatican. In doing
@@ -78,7 +78,7 @@ const HistorySection = () => {
               hitherto, an Associate Professor of Communications at the Catholic
               Institute of West Africa, CIWA, PortHarcourt.
             </p>
-            <p className="text-gray-700 mb-6">
+            <p className="text-gray-700 mb-6 text-justify leading-relaxed">
               By this decision, the former Diocese of Sokoto which comprised
               Katsina, Kebbi, Sokoto and Zamfara has now been split. The new
               Diocese of Katsina now covers Katsina state and Kaura Namoda (a

@@ -72,7 +72,7 @@ export default function CatecheticalCentrePage() {
       </section>
 
       {/* How to Join */}
-      <section className="py-16 px-4 max-w-6xl mx-auto text-center">
+      {/* <section className="py-16 px-4 max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-6">How to Participate</h2>
         <p className="text-gray-700 max-w-3xl mx-auto mb-8">
           Register through your parish catechist, or sign up online to receive updates, session links, and study materials directly to your email or phone.
@@ -83,10 +83,10 @@ export default function CatecheticalCentrePage() {
         >
           Register Here
         </Link>
-      </section>
+      </section> */}
 
       {/* Become a Catechist CTA */}
-      <section className="bg-[#D6A739] py-16 px-4 text-center">
+      {/* <section className="bg-[#D6A739] py-16 px-4 text-center">
         <h2 className="text-3xl font-bold mb-4 text-black">Answer the Call to Serve</h2>
         <p className="text-black max-w-2xl mx-auto mb-6">
           Do you feel called to share the faith and guide others on their journey with Christ?  
@@ -98,17 +98,17 @@ export default function CatecheticalCentrePage() {
         >
           Become a Catechist
         </Link>
-      </section>
+      </section> */}
 
       {/* Contact & Location */}
-      <section className="bg-blue-900 text-white py-16 px-4 text-center">
+      {/* <section className="bg-blue-900 text-white py-16 px-4 text-center">
         <h2 className="text-3xl font-bold mb-4">Contact the Centre</h2>
         <p className="max-w-2xl mx-auto mb-4">
           Catechetical Centre, Catholic Diocese of Katsina  
           Near St. Mary’s Cathedral, Katsina
         </p>
         <p>Email: catechesis@cdkatsina.org | Phone: +234 800 123 4567</p>
-      </section>
+      </section> */}
     </main>
   );
 }

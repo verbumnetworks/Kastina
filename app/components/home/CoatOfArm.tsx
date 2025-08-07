@@ -32,7 +32,7 @@ const CoatOfArmsSection = () => {
           <h2 className="text-2xl md:text-3xl font-semibold mb-4">
             Diocese of katsina Coat of Arms
           </h2>
-          <p className="text-gray-100 mb-4">
+          <p className="text-gray-100 mb-4 text-justify ">
             Coat of arms, originating in Europe during the late 11th century,
             were initially employed on the battlefield for warriors to
             distinguish their comrades. These same symbols were later utilised

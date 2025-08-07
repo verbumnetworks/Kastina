@@ -26,7 +26,7 @@ export default function OurVision() {
           <h2 className="text-3xl md:text-4xl font-semibold text-[#0C1A2B]">
             OUR VISION
           </h2>
-          <p className="text-gray-700 text-base leading-relaxed">
+          <p className="text-gray-700 text-justify leading-relaxed">
             The announcement of the creation of the new Ecclesiastical
             jurisdiction known as Catholic Diocese of Katsina was conveyed to
             the world on Monday, 16th October 2023 from the Vatican. In doing
@@ -61,9 +61,9 @@ export default function OurVision() {
         <div className="grid grid-cols-2 gap-4">
           {[
             { label: "OUR PEOPLE", img: "/assets/building2.jpg" },
-            { label: "OUR YOUTH", img: "/assets/groto.jpg" },
-            { label: "CATHEDRAL", img: "/assets/building1.jpg" },
-            { label: "EDUCATION", img: "/assets/building3.jpg" },
+            { label: "OUR STANDARD ", img: "/assets/groto.jpg" },
+            { label: "CATHECATICAL CENTER", img: "/assets/building1.jpg" },
+            { label: "OUR BISHOP", img: "/assets/building3.jpg" },
           ].map(({ label, img }, i) => (
             <motion.div
               key={label}

@@ -14,7 +14,6 @@ interface NavItem {
   id: number;
   label: string;
   href?: string;
-  subItems?: { label: string; href: string }[];
 }
 
 const navLinks: NavItem[] = [

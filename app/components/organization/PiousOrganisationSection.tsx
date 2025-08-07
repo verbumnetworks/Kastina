@@ -33,7 +33,7 @@ export default function PiousOrganizationsSection() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-red-700">{org.title}</h3>
+              <h3 className="text-xl font-semibold mb-2">{org.title}</h3>
               <p className="text-sm text-gray-700">{org.description}</p>
             </motion.div>
           ))}

@@ -18,15 +18,15 @@ const BishopSection = () => {
           <h2 className="text-2xl md:text-4xl text-center font-bold mb-4 text-gray-900">
             Welcome Address
           </h2>
-          <p className="text-gray-800 mb-6">
+          <p className="text-gray-800 mb-6 text-justify leading-relaxed">
             On behalf of the Diocese, we warmly welcome you to our online home.
             Under the spiritual guidance of our beloved Bishop, we remain
             committed to nurturing faith, fostering unity, and serving our
             communities with love and compassion. May this space be a source of
             inspiration, connection, and renewal for all who visit. Whether
             you are seeking spiritual growth, community engagement, or simply a
-            place to belong—know that you are welcome here. “Let all that you do
-            be done in love.” — 1 Corinthians 16:14
+            place to belong—know that you are welcome here. <b>“Let all that you do
+            be done in love.” — 1 Corinthians 16:14</b>
           </p>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
