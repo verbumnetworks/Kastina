@@ -1,24 +1,26 @@
 import { PrismaClient } from '@prisma/client';
-import { blogs } from './blog';
-import { news } from './news';
+// import { users } from './userSeed';
+// import { blogs } from './blog';
+// import { homilies } from './homily';
 
 const prisma = new PrismaClient();
 
-
 async function main() {
-  console.log("🌱 Seeding database...");
+  console.log('🌱 Seeding database...');
 
-  // Seed Blogs
-  await prisma.blog.createMany({
-    data: blogs
-  });
-  console.log(`✅ Seeded ${blogs.length} blogs`);
+  // Seed Users
+  // await prisma.user.createMany({
+  //   data: users,
+  // });
+  // console.log(`✅ Seeded ${users.length} users`);
 
-  // Seed News
-  await prisma.news.createMany({
-    data: news
-  });
-  console.log(`✅ Seeded ${news.length} news items`);
+  // Seed Blogs (optional)
+  // await prisma.blog.createMany({ data: blogs, skipDuplicates: true });
+  // console.log(`✅ Seeded ${blogs.length} blogs`);
+
+  // Seed Homilies (optional)
+  // await prisma.homily.createMany({ data: homilies });
+  // console.log(`✅ Seeded ${homilies.length} homilies`);
 }
 
 main()

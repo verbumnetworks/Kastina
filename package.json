@@ -9,9 +9,6 @@
     "lint": "next lint",
     "postinstall": "bun x prisma generate"
   },
-  "prisma": {
-    "seed": "bun run seed"
-  },
   "dependencies": {
     "@prisma/client": "^6.13.0",
     "bcrypt": "^6.0.0",

@@ -1,37 +1,12 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { Homily } from "@prisma/client";
 
-const news = [
-  {
-    id: 1,
-    title: 'Pope Francis Announces New Encyclical',
-    date: 'July 15, 2025',
-    summary:
-      'The Holy Father has released a new encyclical emphasizing peace and unity in a fragmented world.',
-    image: '/assets/popeleo1.jpeg',
-  },
-  {
-    id: 2,
-    title: 'World Youth Day Reflections',
-    date: 'July 10, 2025',
-    summary:
-      'Young Catholics from across the globe gathered to share stories of faith, hope, and renewal.',
-    image: '/assets/popeleo2.jpeg',
-  },
-  {
-    id: 3,
-    title: 'Local Diocese Hosts Faith Seminar',
-    date: 'July 3, 2025',
-    summary:
-      'A weekend of learning and community engagement hosted at the Cathedral of St. John.',
-    image: '/assets/popeleo3.jpeg',
-  },
-];
 
-export default function LatestNews() {
+export default function LatestHomilies({homilies}: {homilies:Partial< Homily>[]}) {
   const router = useRouter();
 
   return (
@@ -44,7 +19,7 @@ export default function LatestNews() {
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-4xl font-bold text-center text-[#0C1A2B] mb-4"
         >
-          Latest from our Bishop
+          Latest Bishop&apos;s Reflections
         </motion.h2>
 
         <div className="w-24 h-1 bg-[#D6A739] mx-auto mb-10 rounded-full" />
@@ -52,25 +27,31 @@ export default function LatestNews() {
         {/* News Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-3 grid gap-8 md:grid-cols-3">
-            {news.map((item, i) => (
+            {homilies.map((item, i) => (
               <motion.div
-                key={item.id}
+                key={item.slug}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2 }}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 cursor-pointer"
-                onClick={() => router.push(`/news/${item.id}`)}
+                onClick={() => router.push(`/homily/${item.slug}`)}
               >
                 <div className="relative h-48 w-full">
                   <Image
-                    src={item.image}
-                    alt={item.title}
+                    src={item.image as string}
+                    alt={item.title as string}
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div className="p-5">
-                  <p className="text-sm text-gray-500 mb-2">{item.date}</p>
+                  <p className="text-sm text-gray-500 mb-2">
+                    {item.date?.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </p>
                   <h3 className="text-xl font-semibold text-[#0C1A2B] mb-2">
                     {item.title}
                   </h3>
@@ -84,10 +65,10 @@ export default function LatestNews() {
         {/* View All Button */}
         <div className="mt-12 text-center">
           <button
-            onClick={() => router.push('/news')}
+            onClick={() => router.push("/news")}
             className="bg-[#D6A739] text-white px-6 py-2 rounded-md font-semibold shadow hover:bg-yellow-600 transition"
           >
-            View All News
+            View All Reflections
           </button>
         </div>
       </div>

@@ -1,6 +1,8 @@
+
 export const blogs = [
   {
     title: "lorem  Lorem ipsum dolor sit amet,",
+    slug: "lorem-ipsum-dolor-sit-amet",
     excerpt:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt placerat, velit sapien pretium risus, non dignissim orci libero in tortor. Nulla facilisi. Proin sit amet dapibus au",
     image: "/assets/building9.jpg",
@@ -11,6 +13,7 @@ export const blogs = [
 
   {
     title: "lorem  Lorem ipsum dolor sit amet,",
+    slug : "lorem-ipsum-dolor-sit-amet-2",
     excerpt:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt placerat, velit sapien pretium risus, non dignissim orci libero in tortor. Nulla facilisi. Proin sit amet dapibus au",
     image: "/assets/building6.jpg",
@@ -20,6 +23,7 @@ export const blogs = [
   },
   {
     title: "lorem  Lorem ipsum dolor sit amet,",
+    slug: "lorem-ipsum-dolor-sit-amet-3",
     excerpt:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt placerat, velit sapien pretium risus, non dignissim orci libero in tortor. Nulla facilisi. Proin sit amet dapibus au",
     image: "/assets/building2.jpg",
@@ -29,6 +33,7 @@ export const blogs = [
   },
   {
     title: "lorem  Lorem ipsum dolor sit amet,",
+    slug: "lorem-ipsum-dolor-sit-amet-4",
     excerpt:
       "Make your UI shine across devices with these powerful Tailwind CSS techniques.",
     image: "/assets/building1.jpg",
@@ -38,6 +43,7 @@ export const blogs = [
   },
   {
     title: "lorem  Lorem ipsum dolor sit amet,",
+    slug: "lorem-ipsum-dolor-sit-amet-5",
     excerpt:
       "Make your UI shine across devices with these powerful Tailwind CSS techniques.",
     image: "/assets/groto.jpg",
@@ -47,6 +53,7 @@ export const blogs = [
   },
   {
     title: "lorem  Lorem ipsum dolor sit amet,",
+    slug: "lorem-ipsum-dolor-sit-amet-6",
     excerpt:
       "Make your UI shine across devices with these powerful Tailwind CSS techniques.",
     image: "/assets/building3.jpg",
@@ -56,6 +63,7 @@ export const blogs = [
   },
   {
     title: "lorem  Lorem ipsum dolor sit amet,",
+    slug: "lorem-ipsum-dolor-sit-amet-7",
     excerpt:
       "Make your UI shine across devices with these powerful Tailwind CSS techniques.",
     image: "/assets/building2.jpg",
@@ -65,6 +73,7 @@ export const blogs = [
   },
   {
     title: "lorem  Lorem ipsum dolor sit amet,",
+    slug: "lorem-ipsum-dolor-sit-amet-8",
     excerpt:
       "lorem  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tristique,",
     image: "/assets/building1.jpg",
