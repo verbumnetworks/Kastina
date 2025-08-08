@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "npx prisma generate"
+    "postinstall": "bun x prisma generate"
   },
   "prisma": {
     "seed": "bun run seed"

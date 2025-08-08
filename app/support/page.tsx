@@ -46,7 +46,7 @@ export default function DonatePage() {
         <section className="text-center">
           <h1 className="text-4xl font-bold text-blue-900 mb-4">Support the Mission</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Your generosity helps us grow the mission of Christ in our diocese. Whether it's for building projects,
+            Your generosity helps us grow the mission of Christ in our diocese. Whether it&apos;s for building projects,
             seminary formation, or outreach ministries — every gift counts.
           </p>
         </section>
@@ -101,7 +101,7 @@ export default function DonatePage() {
         {/* Closing */}
         <section className="text-center">
           <p className="text-gray-700">
-            To make donations in cash or kind, please contact the Diocesan Finance Office or the Bishop's Secretariat.
+            To make donations in cash or kind, please contact the Diocesan Finance Office or the Bishop&apos;s Secretariat.
           </p>
         </section>
       </div>
