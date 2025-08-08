@@ -5,6 +5,7 @@ import CoatOfArmsSection from "./components/home/CoatOfArm";
 import Hero from "./components/home/Hero";
 import LatestHomilies from "./components/home/LatestHomilies";
 import UpcomingAnnouncementsSection from "./components/home/UpcomingAnnouncementsSection";
+import LatestEvents from "./components/home/LatestEvents";
 
 export default async function Home() {
   const homilies = await prisma.homily.findMany({
@@ -28,6 +29,7 @@ export default async function Home() {
         <LatestHomilies homilies={homilies} />
         {/* <HomilySection /> */}
         <CoatOfArmsSection />
+        <LatestEvents />
         <UpcomingAnnouncementsSection />
       </main>
     </div>
