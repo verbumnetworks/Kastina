@@ -1,23 +1,23 @@
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Blog {
-  id       Int      @id @default(autoincrement())
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
   title    String
   excerpt  String
   image    String
   date     DateTime
   content  String
 }
+
 model News {
-  id      Int      @id @default(autoincrement())
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
   title   String
   summary String
   image   String
@@ -26,29 +26,28 @@ model News {
 }
 
 model Homily {
-  id        String   @id @default(uuid())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
   content   String
   date      DateTime @default(now())
-  userId    String
+  userId    String   @db.ObjectId
   author    User     @relation(fields: [userId], references: [id])
 }
 
 model User {
-  id         String     @id @default(uuid())
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
   name       String
   email      String     @unique
-  password   String     // hashed
+  password   String
   role       UserRole   @default(PRIEST)
   avatar     String?
   bio        String?
-  title      String?     // e.g., "His Lordship"
-  isActive   Boolean     @default(true)
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
+  title      String?
+  isActive   Boolean    @default(true)
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
 
-  // Relations
-  homilies   Homily[]    // Only relevant for bishops
+  homilies   Homily[]
 }
 
 enum UserRole {
@@ -56,16 +55,15 @@ enum UserRole {
   BISHOP
   PRIEST
 }
+
 model Clergy {
-  id        String   @id @default(uuid())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   role      String
-  parish   String
-  address String
+  parish    String
+  address   String
   phone     String?
   extra     String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
-
-

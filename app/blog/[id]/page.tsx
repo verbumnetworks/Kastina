@@ -9,9 +9,9 @@ export default async function BlogPage({
 }) {
   const { id } = await params;
 
-  const blogId = Number(id);
+
   const blog = await prisma.blog.findUnique({
-    where: { id: blogId },
+    where: { id },
   });
   if (!blog) return notFound();
 

@@ -1,6 +1,3 @@
-// lib/db/news.ts
-// import { prisma } from '../client';
-
 import prisma from "../prisma";
 
 export async function getAllNews() {
@@ -9,7 +6,7 @@ export async function getAllNews() {
   });
 }
 
-export async function getNewsById(id: number) {
+export async function getNewsById(id: string) {
   return await prisma.news.findUnique({
     where: { id },
   });

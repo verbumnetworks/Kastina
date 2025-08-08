@@ -8,7 +8,7 @@ interface Props  {
 
 export default async function NewsDetailPage({ params }: Props) {
   const { id } = await params;
-  const news = await getNewsById(Number(id));
+  const news = await getNewsById(id);
 
   if (!news) {
     return <p className="text-center mt-20">News not found.</p>;
