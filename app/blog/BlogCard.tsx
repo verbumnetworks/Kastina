@@ -6,20 +6,20 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 interface BlogCardProps {
-  id: number;
+  id: string;
   title: string;
   excerpt: string;
   image: string;
-  index?: number;
+  index: number;
 }
 
-const BlogCard: FC<BlogCardProps> = ({ title, excerpt, image,  id = 0 }) => {
+const BlogCard: FC<BlogCardProps> = ({ title, excerpt, image,  id, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: id * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
       className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition"
     >
       <div className="relative w-full h-48">
