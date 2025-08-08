@@ -3,12 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
+import DonateButton from "../button/DonateButton"; // ✅ Import your DonateButton
 
 interface NavItem {
   id: number;
@@ -17,40 +14,17 @@ interface NavItem {
 }
 
 const navLinks: NavItem[] = [
-  { id: 1,
-    label: "Home",
-     href: "/" },
-  { id:2,
-    label: "About",
-     href: "/about" 
-    },
-  { id:3,
-    label: "Catechetical",
-    href: "/catechetical" },
-  {
-    id: 4,
-    label: "Our People",
-    href: "/people",
-   
-  },
-  { id:5,
-    label: "Blog",
-    href: "/blog" 
-  },
-  { id:6,
-    label: "Contact", 
-    href: "/contact" },
-
-{
-  id: 7,
-  label: "Gallery",
-  href: "/gallery"
-}
+  { id: 1, label: "Home", href: "/" },
+  { id: 2, label: "About", href: "/about" },
+  { id: 3, label: "Catechetical", href: "/catechetical" },
+  { id: 4, label: "Our People", href: "/people" },
+  { id: 5, label: "Blog", href: "/blog" },
+  { id: 6, label: "Contact", href: "/contact" },
+  { id: 7, label: "Gallery", href: "/gallery" },
 ];
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
-  // const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -59,13 +33,9 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // const toggleDropdown = (label: string) => {
-  //   setDropdownOpen((prev) => (prev === label ? null : label));
-  // };
-
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-md">
-      <div className="w-full bg-gray-100 py-2 text-center">
+      <div className="w-full bg-gray-100 py-2 text-center flex items-center justify-center px-8 md:px-12 lg:px-16">
         <h1 className="text-2xl md:text-4xl font-semibold text-gray-800">
           Catholic Diocese of Katsina
         </h1>
@@ -99,19 +69,20 @@ const Navbar = () => {
             {mobileOpen ? <IoMdClose /> : <IoMdMenu />}
           </button>
 
+          {/* Desktop Nav */}
           <ul className="hidden md:flex items-center gap-6 text-lg font-bold text-gray-800">
             {navLinks.map((item) => (
               <li key={item.id} className="relative group">
-               
-                    <div className="flex items-center gap-1 cursor-pointer">
-                      <Link href={item.href || "#"}>{item.label}</Link>
-                    
-                    </div>
-                    
-              
+                <Link href={item.href || "#"}>{item.label}</Link>
               </li>
             ))}
+            <li>
+              {" "}
+              <DonateButton className="hidden md:inline-block ml-12" />
+            </li>
           </ul>
+
+          {/* ✅ Donate button for desktop */}
 
           <div className="hidden md:flex items-center gap-4 text-lg">
             <a
@@ -132,30 +103,29 @@ const Navbar = () => {
             >
               <FaYoutube />
             </a>
-          </div> 
+          </div>
         </nav>
 
         {/* Mobile Menu */}
-         {mobileOpen && (
+        {mobileOpen && (
           <div className="md:hidden px-4 pb-4">
             <ul className="flex flex-col gap-4 text-gray-800 text-base font-medium">
               {navLinks.map((item) => (
-                <li key={item.id} className="relative">
-                
-                      <div className="flex justify-between items-center">
-                        <Link
-                          href={item.href || "#"}
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                        
-                      </div>
-                     
-            
-              
+                <li key={item.id}>
+                  <Link
+                    href={item.href || "#"}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
+
+              {/* ✅ Donate button for mobile */}
+              <li>
+                <DonateButton className="w-full mt-2 bg-yellow-600 text-white py-2 rounded text-center font-semibold" />
+              </li>
+
               <div className="flex gap-4 pt-4 border-t border-gray-300">
                 <a
                   href="https://www.facebook.com/share/1649DPp6zj/"
@@ -178,7 +148,7 @@ const Navbar = () => {
               </div>
             </ul>
           </div>
-        )} 
+        )}
       </div>
     </header>
   );
