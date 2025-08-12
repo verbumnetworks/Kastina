@@ -2,6 +2,8 @@ import { PrismaClient } from '@prisma/client';
 // import { users } from './userSeed';
 // import { blogs } from './blog';
 // import { homilies } from './homily';
+// import { events } from './events';
+import { clergy } from './clergy';
 
 const prisma = new PrismaClient();
 
@@ -21,6 +23,12 @@ async function main() {
   // Seed Homilies (optional)
   // await prisma.homily.createMany({ data: homilies });
   // console.log(`✅ Seeded ${homilies.length} homilies`);
+  // Seed Events
+  // await prisma.event.createMany({ data: events});
+  // console.log(`✅ Seeded ${events.length} events`);
+  // Seed Clergy
+  await prisma.clergy.createMany({ data: clergy });
+  console.log(`✅ Seeded ${clergy.length} clergy members`);
 }
 
 main()

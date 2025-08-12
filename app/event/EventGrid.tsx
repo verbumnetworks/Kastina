@@ -16,7 +16,7 @@ export default function EventGrid({ items }: { items: EventItem[] }) {
       }}
     >
       {items.map((e) => (
-        <EventCard key={e.id} event={e} />
+        <EventCard key={e.slug} event={e} />
       ))}
     </motion.div>
   );

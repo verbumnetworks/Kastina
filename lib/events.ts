@@ -1,8 +1,7 @@
 export type EventItem = {
-  id: string;
   slug: string;
   title: string;
-  date: string; 
+  date: Date; 
   excerpt: string;
   cover: string;
   images: string[];
@@ -11,10 +10,9 @@ export type EventItem = {
 
 export const events: EventItem[] = [
   {
-    id: "evt-o-lumen-ecclesiae",
     slug: "o-lumen-ecclesiae",
     title: "O Lumen Ecclesiae",
-    date: "2025-08-08",
+    date: new Date (2025-3-8),
     excerpt:
       "On August 8, we celebrate St. lorem  augue vehicula elit, in dapibus justo nulla nec purus.",
     cover: "/assets/groto.jpg",
@@ -30,10 +28,9 @@ export const events: EventItem[] = [
     ],
   },
   {
-    id: "evt-mary-martha-2025",
     slug: "mary-and-martha-balance-of-faith",
     title: "Mary, Martha, and the Balance of Faith",
-    date: "2025-07-29",
+    date: new Date (2025-7-29),
     excerpt:
       "lorem isump dolor sit amet, consectetur adipiscing elit. Fusce tristique, lorem vel tincidunt gravida, ligula augue vehicula elit, in dapibus justo nulla nec purus.",
     cover: "/assets/logo.jpg",
@@ -47,10 +44,9 @@ export const events: EventItem[] = [
     ],
   },
   {
-    id: "evt-st-jude-2025",
     slug: "i-came-from-st-jude",
     title: `"I came from St. Jude"`,
-    date: "2025-07-24",
+    date: new Date (2025-7-24),
     excerpt:
       "After several miscarriages, Dr. Arthur Lawrence saw his life as a gift of intercession.",
     cover: "/assets/building9.jpg",

@@ -1,5 +1,13 @@
+export type clergyData = {
+  name: string;
+  role: string;
+  parish: string;
+  address: string;
+  phone?: string;
+  extra?: string;
+};
 
-export const clergySeed = [
+export const clergy: clergyData[] = [
   {
     name: "Rev Tibebeselassie Abza",
     role: "Assistant Priest",
