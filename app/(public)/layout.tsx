@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { Footer } from "./components/footer/Footer";
-import Nav from "./components/navbar/Nav";
-import FaithBanner from "./components/faith/FaithBanner";
-
+import "../globals.css";
+import { Footer } from "../components/footer/Footer";
+import Nav from "../components/navbar/Nav";
+import FaithBanner from "../components/faith/FaithBanner";
 
 
 

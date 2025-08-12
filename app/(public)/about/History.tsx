@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import ButtonLink from "../components/button/Button";
+import ButtonLink from "../../components/button/Button";
 
 const counters = [
   { label: "CATHOLICS", value: 590000, suffix: "k", display: 590 },

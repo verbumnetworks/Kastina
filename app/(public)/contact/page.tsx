@@ -1,4 +1,4 @@
-import PageBanner from "../components/banner/PageBanner";
+import PageBanner from "../../components/banner/PageBanner";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 // import { motion } from 'framer-motion';
 

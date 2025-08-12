@@ -1,4 +1,4 @@
-import EventGrid from "@/app/event/EventGrid";
+import EventGrid from "@/app/(public)/event/EventGrid";
 import { events} from "@/lib/events";
 import AnimatedButton from "../button/Button";
 

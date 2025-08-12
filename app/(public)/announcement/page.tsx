@@ -1,11 +1,10 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
-import PageBanner from '../components/banner/PageBanner';
+import PageBanner from '../../components/banner/PageBanner';
+import prisma from "@/lib/prisma";
 
-import { announcements } from '@/lib/announcement'; 
-export default function AnnouncementsPage() {
+export default async function AnnouncementsPage() {
+    const announcements = await prisma.announcement.findMany();
   return (
     <main className="bg-gray-100 ">
         <PageBanner
@@ -13,8 +12,8 @@ export default function AnnouncementsPage() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 py-12 px-4">
         {/* Main Announcement Content */}
         <div className="lg:col-span-2 space-y-10">
-          {announcements.map((announcement, i) => (
-            <div key={i} className="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
+          {announcements.map((announcement) => (
+            <div key={announcement.slug} className="bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
               <div className="relative w-full h-56">
                 <Image
                   src={announcement.image}
@@ -26,11 +25,15 @@ export default function AnnouncementsPage() {
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-2">{announcement.title}</h2>
                 <p className="text-sm text-gray-500 mb-2">
-                  📅 {new Date(announcement.date).toDateString()}
+                    {announcement.date.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
                 </p>
                 <p className="text-gray-700 mb-4">{announcement.description}</p>
                 <Link
-                  href={`/announcements/${i}`}
+                  href={`/announcement/${announcement.slug}`}
                   className="inline-block text-red-700 font-medium hover:underline"
                 >
                   View Details →

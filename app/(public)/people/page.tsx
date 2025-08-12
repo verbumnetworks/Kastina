@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import PageBanner from '../components/banner/PageBanner';
-import PiousOrganizationsSection from '../components/organization/PiousOrganisationSection';
+import PageBanner from '../../components/banner/PageBanner';
+import PiousOrganizationsSection from '../../components/organization/PiousOrganisationSection';
 
 interface TeamMember {
   id: number;

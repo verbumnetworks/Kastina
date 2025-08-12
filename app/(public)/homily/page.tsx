@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import PageBanner from "../components/banner/PageBanner";
+import PageBanner from "../../components/banner/PageBanner";
 import prisma from "@/lib/prisma";
 
 export default async function HomilyListPage() {

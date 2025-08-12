@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import PageBanner from '../components/banner/PageBanner'; 
+import PageBanner from '../../components/banner/PageBanner'; 
 import HistorySection from './History';
 import DeaneriesSection from './Parishes';
 import PoliciesSection from './PoliciesSection';

@@ -1,7 +1,7 @@
  
 import { FC } from "react";
 import BlogCard from "./BlogCard";
-import PageBanner from "../components/banner/PageBanner";
+import PageBanner from "../../components/banner/PageBanner";
 import prisma from "@/lib/prisma";
 
 const BlogPage: FC = async () => {

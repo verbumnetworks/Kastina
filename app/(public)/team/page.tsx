@@ -1,5 +1,5 @@
-import TeamCard from '../components/team/TeamCard';
-import { team } from './../../lib/team';
+import TeamCard from '../../components/team/TeamCard';
+import { team } from '../../../lib/team';
 
 export default function TeamPage() {
   return (
