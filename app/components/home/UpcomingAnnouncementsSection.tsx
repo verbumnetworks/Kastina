@@ -2,48 +2,16 @@
 
 import Image from 'next/image';
 import AnimatedButton from "../button/Button";
+import { announcements } from "@/lib/announcement"; // Assuming you have a file that exports announcements data
 
-export interface AnnouncementItem {
-  title: string;
-  date: string;
-  image: string;
-  description: string;
-}
 
-const sampleAnnouncements: AnnouncementItem[] = [
-  {
-    title: 'Ordination of Rev. John Doe',
-    date: '2025-09-14',
-    image: '/assets/building1.jpg',
-    description:
-      'The Catholic Diocese of Katsina joyfully invites you to the ordination of Rev. John Doe at St. Mary’s Cathedral.',
-  },
-  {
-    title: 'Dedication of Holy Trinity Church',
-    date: '2025-10-01',
-    image: '/assets/building2.jpg',
-    description:
-      'Join us for the solemn dedication of Holy Trinity Catholic Church, Daura Deanery. A moment of grace for the faithful!',
-  },
-  {
-    title: 'Diocesan Youth Rally 2025',
-    date: '2025-11-12',
-    image: '/assets/building3.jpg',
-    description:
-      'All youths across the Diocese are invited to our annual rally for praise, worship, formation, and fellowship.',
-  },
-];
-
-export default function UpcomingAnnouncementsSection({
-  announcements = sampleAnnouncements,
-}: {
-  announcements?: AnnouncementItem[];
-}) {
+export default function UpcomingAnnouncementsSection()
+ {
   return (
     <section className="bg-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="mb-10 text-center">
-          <h2 className="text-3xl font-bold text-blue-900 mb-2">Upcoming Diocesan Announcements</h2>
+          <h2 className="text-2xl font-bold mb-2 md:text-4xl">Upcoming Diocesan Announcements</h2>
           <p className="text-gray-600">Stay informed about what’s happening in our diocese.</p>
         </div>
 
@@ -74,13 +42,8 @@ export default function UpcomingAnnouncementsSection({
         </div>
 
         <div className="mt-10 text-center">
-            <AnimatedButton href="/announcement" label=" View All Announcements" />
-          {/* <Link
-            href="/announcement"
-            className="inline-block px-6 py-2 bg-blue-900 text-white rounded hover:bg-blue-800 transition"
-          >
-            View All Announcements
-          </Link> */}
+            <AnimatedButton href="/announcement" label=" View All Announcements" variant='secondary' />
+        
         </div>
       </div>
     </section>

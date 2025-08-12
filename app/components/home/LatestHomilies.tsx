@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Homily } from "@prisma/client";
+import AnimatedBtutton from "../button/Button";
 
 
 export default function LatestHomilies({homilies}: {homilies:Partial< Homily>[]}) {
@@ -64,12 +65,7 @@ export default function LatestHomilies({homilies}: {homilies:Partial< Homily>[]}
 
         {/* View All Button */}
         <div className="mt-12 text-center">
-          <button
-            onClick={() => router.push("/news")}
-            className="bg-[#D6A739] text-white px-6 py-2 rounded-md font-semibold shadow hover:bg-yellow-600 transition"
-          >
-            View All Reflections
-          </button>
+       <AnimatedBtutton  href="/homily" variant="secondary" label="View All ReflectionsS"/>
         </div>
       </div>
     </section>

@@ -27,7 +27,6 @@ export default async function Home() {
         <BishopSection />
         <About />
         <LatestHomilies homilies={homilies} />
-        {/* <HomilySection /> */}
         <CoatOfArmsSection />
         <LatestEvents />
         <UpcomingAnnouncementsSection />

@@ -4,30 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PageBanner from '../components/banner/PageBanner';
 
-const announcements = [
-  {
-    title: 'Ordination of Rev. John Doe',
-    date: '2025-09-14',
-    image: '/assets/building4.jpg',
-    description:
-      'The Catholic Diocese of Katsina joyfully invites you to the ordination of Rev. John Doe at St. Mary’s Cathedral.',
-  },
-  {
-    title: 'Dedication of Holy Trinity Church',
-    date: '2025-10-01',
-    image: '/assets/building1.jpg',
-    description:
-      'Join us for the solemn dedication of Holy Trinity Catholic Church, Daura Deanery. A moment of grace for the faithful!',
-  },
-  {
-    title: 'Diocesan Youth Rally 2025',
-    date: '2025-11-12',
-    image: '/assets/building2.jpg',
-    description:
-      'All youths across the Diocese are invited to our annual rally for praise, worship, formation, and fellowship.',
-  },
-];
-
+import { announcements } from '@/lib/announcement'; 
 export default function AnnouncementsPage() {
   return (
     <main className="bg-gray-100 ">
