@@ -8,6 +8,9 @@ const NAV = [
   { href: "/dashboard", label: "Overview", Icon: LayoutDashboard },
   { href: "/dashboard/announcements", label: "Announcements", Icon: Megaphone },
   { href: "/dashboard/events", label: "Events", Icon: CalendarDays },
+  {href: "/dashboard/homily", label: "Reflections", Icon: Megaphone},
+  {href: '/dashboard/clergy', label: 'Clergy', Icon: Megaphone},
+  {href:  "/dashboard/blog", label: "Blogs", Icon: Megaphone},
 ];
 
 export default function Sidebar({
@@ -20,7 +23,7 @@ export default function Sidebar({
   const pathname = usePathname();
 
   return (
-    <nav className={variant === "mobile" ? "space-y-1" : "sticky top-20 space-y-1"}>
+    <nav className={variant === "mobile" ? "space-y-1" : "sticky top-20 space-y-1 "}>
       {NAV.map(({ href, label, Icon }) => {
         const active = pathname === href || pathname.startsWith(href + "/");
         return (

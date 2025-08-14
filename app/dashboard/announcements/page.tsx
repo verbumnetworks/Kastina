@@ -4,18 +4,48 @@ import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
-export default async function AnnouncementsList() {
-  const items = await prisma.announcement.findMany({
-    orderBy: { date: "desc" },
-    select: { title: true, slug: true, image: true },
-  });
+type Props = {
+  searchParams?: {
+    page?: string;
+    pageSize?: string;
+  };
+};
+
+export default async function AnnouncementsList({ searchParams }: Props) {
+  // 1) Read & normalize query params
+  const page = Math.max(1, Number(searchParams?.page ?? 1) || 1);
+  const pageSize = Math.min(50, Math.max(1, Number(searchParams?.pageSize ?? 5) || 10));
+  const skip = (page - 1) * pageSize;
+
+  // 2) Query DB
+  const [total, items] = await Promise.all([
+    prisma.announcement.count(),
+    prisma.announcement.findMany({
+      orderBy: { date: "desc" },
+      select: { title: true, slug: true, image: true },
+      skip,
+      take: pageSize,
+    }),
+  ]);
+
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+
+  // 3) Helper to build page links
+  const q = (p: number) => {
+    const params = new URLSearchParams();
+    params.set("page", String(p));
+    params.set("pageSize", String(pageSize));
+    return `/dashboard/announcements?${params.toString()}`;
+  };
 
   return (
     <div className="p-6">
       <div className="mb-5 flex items-center justify-between">
         <div>
           <h2 className="text-xl font-semibold tracking-tight">Announcements</h2>
-          <p className="text-sm text-slate-500">Create, edit and manage announcements.</p>
+          <p className="text-sm text-slate-500">
+            Create, edit and manage announcements.
+          </p>
         </div>
 
         <Link
@@ -41,7 +71,7 @@ export default async function AnnouncementsList() {
               {items.map((a) => (
                 <tr key={a.slug} className="border-t">
                   <td className="px-4 py-3">
-                    <div className="relative h-10 w-16 overflow-hidden rounded border bg-slate-100">
+                    <div className="relative h-10 w-10 overflow-hidden rounded-full bg-slate-100">
                       {a.image ? (
                         <Image src={a.image} alt={a.title} fill className="object-cover" />
                       ) : null}
@@ -74,6 +104,61 @@ export default async function AnnouncementsList() {
               )}
             </tbody>
           </table>
+        </div>
+
+        {/* 4) Pagination controls */}
+        <div className="flex flex-col gap-3 border-t p-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="text-sm text-slate-500">
+            Page <span className="font-medium text-slate-700">{page}</span> of{" "}
+            <span className="font-medium text-slate-700">{totalPages}</span> ·{" "}
+            {total} total
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Link
+              aria-disabled={page <= 1}
+              className={`rounded-lg border px-3 py-1.5 text-sm ${
+                page <= 1 ? "pointer-events-none opacity-40" : "hover:bg-slate-50"
+              }`}
+              href={q(Math.max(1, page - 1))}
+            >
+              ← Prev
+            </Link>
+
+            {/* simple numbered pages (max 5) */}
+            {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+              // center the window around current page when possible
+              const start = Math.max(1, Math.min(page - 2, totalPages - 4));
+              const p = start + i;
+              if (p > totalPages) return null;
+              const isActive = p === page;
+              return (
+                <Link
+                  key={p}
+                  href={q(p)}
+                  className={`rounded-lg px-3 py-1.5 text-sm ${
+                    isActive
+                      ? "bg-amber-500 text-white"
+                      : "border hover:bg-slate-50"
+                  }`}
+                >
+                  {p}
+                </Link>
+              );
+            })}
+
+            <Link
+              aria-disabled={page >= totalPages}
+              className={`rounded-lg border px-3 py-1.5 text-sm ${
+                page >= totalPages
+                  ? "pointer-events-none opacity-40"
+                  : "hover:bg-slate-50"
+              }`}
+              href={q(Math.min(totalPages, page + 1))}
+            >
+              Next →
+            </Link>
+          </div>
         </div>
       </div>
     </div>

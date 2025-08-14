@@ -34,7 +34,7 @@ async function createAnnouncement(formData: FormData) {
 
 export default function NewAnnouncementPage() {
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-2xl mx-auto p-6">
       <h2 className="text-xl font-semibold mb-4">New Announcement</h2>
 
       <form action={createAnnouncement} className="space-y-4">

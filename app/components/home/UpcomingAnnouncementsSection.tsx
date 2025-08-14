@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import AnimatedButton from "../button/Button";
 import { announcements } from "@/lib/announcement"; // Assuming you have a file that exports announcements data
+import SectionHeading from '../heading/SectionHeading';
 
 
 export default function UpcomingAnnouncementsSection()
@@ -10,10 +11,10 @@ export default function UpcomingAnnouncementsSection()
   return (
     <section className="bg-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-10 text-center">
-          <h2 className="text-2xl font-bold mb-2 md:text-4xl">Upcoming Diocesan Announcements</h2>
-          <p className="text-gray-600">Stay informed about what’s happening in our diocese.</p>
-        </div>
+          <SectionHeading
+                  title=" Diocesean Announcements"
+                  subtitle="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {announcements.slice(0, 3).map((item, i) => (

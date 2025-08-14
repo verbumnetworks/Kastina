@@ -1,19 +1,17 @@
 import EventGrid from "@/app/(public)/event/EventGrid";
-import { events} from "@/lib/events";
+import { events } from "@/lib/events";
 import AnimatedButton from "../button/Button";
+import SectionHeading from "../heading/SectionHeading";
 
 export default function LatestEvents() {
-
   return (
     <section className="mx-auto max-w-6xl px-4 py-12">
       <div className="text-center space-y-4">
-        <h2 className="text-4xl font-bold tracking-tight text-slate-900 text-center">
-          latest Diocesean Events
-        </h2>
-        <p>
-          etur adipisicing elit. Error
-          nostrum est m fugiat est, autem error sunt dolor magnam!
-        </p>
+        <SectionHeading
+          title="Latest  Diocesean Events"
+          
+          subtitle="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        />
       </div>
 
       <div className="mt-8">

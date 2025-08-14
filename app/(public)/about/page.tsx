@@ -7,12 +7,13 @@ import PageBanner from '../../components/banner/PageBanner';
 import HistorySection from './History';
 import DeaneriesSection from './Parishes';
 import PoliciesSection from './PoliciesSection';
+import AboutBishopPreview from './AboutBishop';
 
 const ministries = [
   {
-    title: 'RELIGIOUS ORDERS & COMMUNITIES',
+    title: 'Governing Body Of The Diocese',
     img: '/assets/popeleo.jpeg', // update with your actual path
-    link: '/religious-orders',
+    link: '/people',
   },
   {
     title: 'OTHER CHURCHES (RITES)',
@@ -35,6 +36,7 @@ export default function page() {
         backgroundImage="/assets/popeleo3.jpeg"
       />
       <HistorySection />
+      <AboutBishopPreview/>
       <DeaneriesSection/>
       <PoliciesSection />
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 bg-[#0C3E66]  py-16 px-4">

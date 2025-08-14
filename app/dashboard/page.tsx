@@ -1,9 +1,12 @@
 import prisma from "@/lib/prisma";
-
 export default async function DashboardHome() {
-  const [annCount, evtCount, latestAnn] = await Promise.all([
+  const [annCount, evtCount, blogCount, homilyCount, clergyCount] = await Promise.all([
     prisma.announcement.count(),
     prisma.event.count().catch(() => 0),
+    prisma.blog.count().catch(() => 0),
+    prisma.clergy.count().catch(() => 0),
+    prisma.homily.count().catch(() => 0),
+
     prisma.announcement.findMany({
       orderBy: { date: "desc" },
       take: 5,
@@ -12,16 +15,19 @@ export default async function DashboardHome() {
   ]);
 
   return (
-    <div className="p-6">
+    <div className="p-6 ">
       {/* Stats */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         <CardStat label="Announcements" value={annCount} />
         <CardStat label="Events" value={evtCount} />
-        <CardStat label="Pending Reviews" value={0} />
+        <CardStat label="Blogs" value={blogCount} />
+        <CardStat label="Homilies" value={homilyCount} />
+        <CardStat label="Clergy" value={clergyCount} />
+
       </div>
 
       {/* Latest announcements */}
-      <div className="mt-6 rounded-xl border overflow-hidden">
+      {/* <div className="mt-6 rounded-xl border overflow-hidden">
         <div className="flex items-center justify-between border-b bg-slate-50 px-4 py-3">
           <h3 className="text-sm font-semibold">Latest announcements</h3>
         </div>
@@ -56,14 +62,14 @@ export default async function DashboardHome() {
             </tbody>
           </table>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
 
 function CardStat({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-2xl border bg-white p-5 shadow-sm">
+    <div className="rounded-md  bg-orange-100 p-5 shadow-md">
       <div className="text-sm text-slate-500">{label}</div>
       <div className="mt-2 text-3xl font-bold tracking-tight">{value}</div>
     </div>
