@@ -23,15 +23,5 @@ export const users: Omit<User, 'id' | 'createdAt' | 'updatedAt'>[] = [
     bio: 'The Shepherd of our Diocese',
     title: 'His Lordship',
     isActive: true,
-  },
-  {
-    name: 'Fr. Michael',
-    email: 'priest@diocese.org',
-    password: 'hashed-priest-pass',
-    role: 'PRIEST',
-    avatar: '/images/priest-avatar.png',
-    bio: 'Parish priest',
-    title: 'Rev. Father',
-    isActive: true,
-  },
+  }
 ];
