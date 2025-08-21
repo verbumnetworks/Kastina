@@ -59,7 +59,6 @@ model User {
 enum UserRole {
   ADMIN
   BISHOP
-  PRIEST
 }
 
 model Clergy {
