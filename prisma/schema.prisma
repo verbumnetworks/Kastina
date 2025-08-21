@@ -45,7 +45,7 @@ model User {
   name      String
   email     String    @unique
   password  String
-  role      UserRole  @default(PRIEST)
+  role      UserRole  @default(ADMIN)
   avatar    String?
   bio       String?
   title     String?
