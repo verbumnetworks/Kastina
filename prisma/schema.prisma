@@ -15,6 +15,12 @@ model Blog {
   image   String
   date    DateTime
   content String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+    @@map("blogs")
+     @@index([date(sort: Desc)])
+
+
 }
 
 model Homily {
@@ -25,8 +31,12 @@ model Homily {
   image    String
   date     DateTime
   content  String
-  userId   String   @db.ObjectId
+  userId   String?   @db.ObjectId
   author   User?     @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+    @@map("homilies")
+     @@index([date(sort: Desc)])
 
 }
 

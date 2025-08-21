@@ -62,7 +62,7 @@ export default async function AnnouncementsPage() {
 
           {/* Downloads */}
           <div className="bg-white p-6 rounded shadow">
-  <h3 className="text-xl font-semibold mb-4 ">Upcoming Baptism Dates</h3>
+  <h3 className="text-xl font-semibold mb-4 ">Diocesan Calender</h3>
   <ul className="text-sm space-y-2 text-gray-700">
     <li>📍 St. Mary’s Cathedral – Sept 21, 2025</li>
     <li>📍 Holy Trinity Parish – Oct 5, 2025</li>

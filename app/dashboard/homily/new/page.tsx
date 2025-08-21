@@ -3,40 +3,40 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 
-async function createBlog(formData: FormData) {
+async function createReflection(formData: FormData) {
   "use server";
   const title = String(formData.get("title") || "").trim();
   const slug = String(formData.get("slug") || "").trim();
   const dateStr = String(formData.get("date") || "").trim();
   const image = String(formData.get("image") || "").trim();
-  const  excerpt = String(formData.get("excerpt") || "").trim();
+  const  summary = String(formData.get("summary") || "").trim();
   const content = String(formData.get("content") || "").trim();
 
   if (!title || !slug || !dateStr) {
     throw new Error("Title, slug, and date are required");
   }
 
-  await prisma.blog.create({
+  await prisma.homily.create({
     data: {
       title,
       slug,
       date: new Date(dateStr),
       image,
-       excerpt,
+       summary,
       content,
     },
   });
 
-  revalidatePath("/dashboard/blog");
-  redirect("/dashboard/blog");
+  revalidatePath("/dashboard/homily");
+  redirect("/dashboard/homily");
 }
 
-export default function NewBlogPage() {
+export default function NewReflectionPage() {
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <h2 className="text-xl font-semibold mb-4">New Blog</h2>
+      <h2 className="text-xl font-semibold mb-4">New Homily</h2>
 
-      <form action={createBlog} className="space-y-4">
+      <form action={createReflection} className="space-y-4">
         <div>
           <label className="block text-sm font-medium">Title</label>
           <input name="title" required className="mt-1 w-full rounded-lg border px-3 py-2" />
@@ -59,7 +59,7 @@ export default function NewBlogPage() {
 
         <div>
           <label className="block text-sm font-medium">Short description</label>
-          <textarea name="excerpt" rows={3} className="mt-1 w-full rounded-lg border px-3 py-2" />
+          <textarea name="summary" rows={3} className="mt-1 w-full rounded-lg border px-3 py-2" />
         </div>
 
         <div>

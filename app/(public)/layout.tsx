@@ -3,6 +3,7 @@ import "../globals.css";
 import { Footer } from "../components/footer/Footer";
 import Nav from "../components/navbar/Nav";
 import FaithBanner from "../components/faith/FaithBanner";
+// import SupportUsBanner from "../components/banner/SupportUs";
 
 
 
@@ -24,6 +25,8 @@ export default function RootLayout({
         <Nav/>
         {children}
         <FaithBanner/>
+        {/* <SupportUsBanner /> */}
+        {/* Footer */}
         <Footer/>
       </body>
     </html>

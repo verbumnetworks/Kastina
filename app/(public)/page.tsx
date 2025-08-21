@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import About from "../components/home/About";
+// import About from "../components/home/About";
 import BishopSection from "../components/home/Bishop";
 import CoatOfArmsSection from "../components/home/CoatOfArm";
 import Hero from "../components/home/Hero";
@@ -19,15 +19,15 @@ export default async function Home() {
       image: true,
     },
   });
-  
+
   return (
     <div>
       <main className="">
         <Hero />
         <BishopSection />
-        <About />
-        <LatestHomilies homilies={homilies} />
         <CoatOfArmsSection />
+        {/* <About /> */}
+        <LatestHomilies homilies={homilies} />
         <LatestEvents />
         <UpcomingAnnouncementsSection />
       </main>

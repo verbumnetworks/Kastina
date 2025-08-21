@@ -1,20 +1,26 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
+import ConfirmDelete from "@/app/components/button/confirmDeleteButton";
+import { deleteAnnouncement } from "../actions/delete";
 
 export const dynamic = "force-dynamic";
 
 type Props = {
-  searchParams?: {
+  params?: Promise<{
     page?: string;
     pageSize?: string;
-  };
+  }>;
 };
 
-export default async function AnnouncementsList({ searchParams }: Props) {
-  // 1) Read & normalize query params
-  const page = Math.max(1, Number(searchParams?.page ?? 1) || 1);
-  const pageSize = Math.min(50, Math.max(1, Number(searchParams?.pageSize ?? 5) || 10));
+export default async function AnnouncementsList({ params }: Props) {
+  // 1) Read & normalize query param
+  const searchParams = await params;
+  const page = Math.max(1, Number((await searchParams?.page) ?? 1) || 1);
+  const pageSize = Math.min(
+    50,
+    Math.max(1, Number(searchParams?.pageSize ?? 5) || 10)
+  );
   const skip = (page - 1) * pageSize;
 
   // 2) Query DB
@@ -42,7 +48,9 @@ export default async function AnnouncementsList({ searchParams }: Props) {
     <div className="p-6">
       <div className="mb-5 flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-semibold tracking-tight">Announcements</h2>
+          <h2 className="text-xl font-semibold tracking-tight">
+            Announcements
+          </h2>
           <p className="text-sm text-slate-500">
             Create, edit and manage announcements.
           </p>
@@ -73,7 +81,12 @@ export default async function AnnouncementsList({ searchParams }: Props) {
                   <td className="px-4 py-3">
                     <div className="relative h-10 w-10 overflow-hidden rounded-full bg-slate-100">
                       {a.image ? (
-                        <Image src={a.image} alt={a.title} fill className="object-cover" />
+                        <Image
+                          src={a.image}
+                          alt={a.title}
+                          fill
+                          className="object-cover"
+                        />
                       ) : null}
                     </div>
                   </td>
@@ -81,15 +94,35 @@ export default async function AnnouncementsList({ searchParams }: Props) {
                   <td className="px-4 py-3 text-slate-500">{a.slug}</td>
                   <td className="px-4 py-3">
                     <div className="flex flex-wrap gap-3">
-                      <Link className="text-blue-700 hover:underline" href={`/announcements/${a.slug}`}>
+                      <Link
+                        className="text-blue-700 hover:underline"
+                        href={`/dashboard/announcements/${a.slug}/view`}
+                      >
                         View
                       </Link>
-                      <Link className="text-emerald-700 hover:underline" href={`/dashboard/announcements/${a.slug}`}>
+                      <Link
+                        className="text-emerald-700 hover:underline"
+                        href={`/dashboard/announcements/${a.slug}/edit`}
+                      >
                         Edit
                       </Link>
-                      <Link className="text-red-700 hover:underline" href={`/dashboard/announcements/${a.slug}?delete=1`}>
+                      {/* <Link className="text-emerald-700 hover:underline" href={`/dashboard/announcements/id/edit${a.slug}`}>
+                        Edit
+                      </Link> */}
+                      {/* <Link
+                        className="text-red-700 hover:underline"
+                        href={`/dashboard/announcements/${a.slug}?delete=1`}
+                      >
                         Delete
-                      </Link>
+                      </Link> */}
+                      <form action={deleteAnnouncement}>
+                        <input type="hidden" name="slug" value={a.slug} />
+                        <ConfirmDelete
+                          title="Delete announcement"
+                          message={`This will permanently delete “${a.title}”.`}
+                          busyText="Deleting..."
+                        />
+                      </form>
                     </div>
                   </td>
                 </tr>
@@ -118,7 +151,9 @@ export default async function AnnouncementsList({ searchParams }: Props) {
             <Link
               aria-disabled={page <= 1}
               className={`rounded-lg border px-3 py-1.5 text-sm ${
-                page <= 1 ? "pointer-events-none opacity-40" : "hover:bg-slate-50"
+                page <= 1
+                  ? "pointer-events-none opacity-40"
+                  : "hover:bg-slate-50"
               }`}
               href={q(Math.max(1, page - 1))}
             >

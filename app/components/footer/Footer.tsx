@@ -1,34 +1,21 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 export const Footer = () => {
   return (
     <footer className="bg-[#222222] text-gray-300 py-12 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
-        <div>
-          <Link href="/" className="flex items-center justify-center">
-            <Image
-              src="/assets/logo.jpg"
-              alt="Logo"
-              width={40}
-              height={40}
-              className="h-15 w-15 rounded-full mb-4"
-            />
-          </Link>
-          <p className="text-md text-center">Catholic Diocese Of Katsina</p>
-        </div>
-
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-8 text-center">
         <div>
           <h2 className="text-white text-lg font-bold mb-2">
             Catholic Diocese of katsina
           </h2>
           <p className="text-sm mb-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero ipsa
-            magnam quod. Quia hic atque dolorum nobis eum, nostrum accusanti
+            The Catholic Diocese of Katsina was officially established on
+            Monday, 16th October 2023, as announced from the Vatican. His
+            Holiness Pope Benedict appointed Reverend Monsignor Gerald Mamman
+            Musa as its first Bishop.
           </p>
         </div>
-
         <div>
           <h3 className="text-white font-semibold mb-3">Cathedral</h3>
           <ul className="space-y-2 text-sm">
@@ -41,13 +28,35 @@ export const Footer = () => {
         </div>
 
         <div>
-          <h3 className="text-white font-semibold mb-3">Company</h3>
+          <h3 className="text-white font-semibold mb-3">Useful Links</h3>
           <ul className="space-y-2 text-sm">
-            <li>About</li>
-            <li>Contact</li>
-            <li>Projects</li>
-            <li>History</li>
-            <li>FAQ</li>
+            <Link href="/about">
+              <li>About</li>
+            </Link>
+            <Link href="/contact">
+              <li>Contact</li>
+            </Link>
+            <Link href="/cathecatical">
+              <li>Cathecatical center</li>
+            </Link>
+            <Link href="/ history">
+              <li>History</li>
+            </Link>
+            <Link href="/people">
+              <li>Offices</li>
+            </Link>
+            <Link href="/gallery">
+              <li>Gallery</li>
+            </Link>
+            <Link href="/blog">
+              <li>News</li>
+            </Link>
+            <Link href="/support">
+              <li>Donate</li>
+            </Link>
+            <Link href="/events">
+              <li>Events</li>
+            </Link>
           </ul>
         </div>
 
@@ -69,13 +78,13 @@ export const Footer = () => {
         </div>
       </div>
 
-      <p className="text-center text-sm text-gray-300 mt-12">
+      <p className="text-center text-xs text-gray-400 mt-12 mb-0">
         &copy; {new Date().getFullYear()} Catholic Diocese Of katsina. All
         rights reserved — Website Devloped by
         <Link
           href="https://verbumnetworksenugu.com"
           target="_blank"
-          className="text-red-300 italic"
+          className="text-red-200 italic text-xs font-extralight hover:underline"
         >
           {" "}
           Verbum Networks Limited Enugu.
