@@ -3,7 +3,7 @@
 import { useState } from "react";
 import SideBar from "./SideBar";
 
-export default function TopBar() {
+export default function TopBar({ role }: { role: string }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -21,12 +21,10 @@ export default function TopBar() {
             </button>
             <span className="font-semibold tracking-tight text-white">Katsina Diocese Admin</span>
           </div>
-
           <div className="flex items-center gap-3">
-            {/* placeholder actions */}
-            {/* <button className="hidden sm:inline-flex rounded-lg border px-3 py-1.5 text-sm hover:bg-slate-50">
-              New
-            </button> */}
+           <form action="/api/auth/signout" method="POST">
+            <button type="submit" className="rounded-lg border text-white hover:text-black px-3 py-1.5 text-sm hover:bg-slate-50 ">Logout</button>
+        </form>
           </div>
         </div>
       </header>
@@ -48,7 +46,7 @@ export default function TopBar() {
               </button>
             </div>
             <div className="p-3">
-              <SideBar variant="mobile" onNavigate={() => setOpen(false)} />
+              <SideBar role={role} variant="mobile" onNavigate={() => setOpen(false)} />
             </div>
           </div>
         </div>

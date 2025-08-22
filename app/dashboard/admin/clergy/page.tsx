@@ -1,4 +1,3 @@
-// app/dashboard/clergy/page.tsx
 import prisma from "@/lib/prisma";
 import Link from "next/link";
 
@@ -12,7 +11,7 @@ export default async function ClergyPage() {
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-2xl font-bold">Clergy List</h1>
         <Link
-          href="/dashboard/clergy/new"
+          href="/dashboard/admin/clergy/new"
           className="rounded-lg border px-4 py-2 text-sm hover:bg-slate-50"
         >
           + Add New Clergy
@@ -53,19 +52,19 @@ export default async function ClergyPage() {
                   </td>
                   <td className="px-4 py-2 text-right space-x-3">
                     <Link
-                      href={`/dashboard/clergy/${c.id}/view`}
+                      href={`/dashboard/admin/clergy/${c.id}/view`}
                       className="text-emerald-700 hover:underline"
                     >
                       View
                     </Link>
                     <Link
-                      href={`/dashboard/clergy/${c.id}/edit`}
+                      href={`/dashboard/admin/clergy/${c.id}/edit`}
                       className="text-blue-700 hover:underline"
                     >
                       Edit
                     </Link>
                     <Link
-                      href={`/dashboard/clergy/${c.id}/delete`}
+                      href={`/dashboard/admin/clergy/${c.id}/delete`}
                       className="text-red-700 hover:underline"
                     >
                       Delete

@@ -2,7 +2,8 @@ import prisma from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
 import ConfirmDelete from "@/app/components/button/confirmDeleteButton";
-import { deleteAnnouncement } from "../actions/delete";
+import { deleteAnnouncement } from "../../actions/delete";
+
 
 export const dynamic = "force-dynamic";
 

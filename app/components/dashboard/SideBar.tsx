@@ -2,29 +2,50 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Megaphone, CalendarDays } from "lucide-react";
-
-const NAV = [
-  { href: "/dashboard", label: "Overview", Icon: LayoutDashboard },
-  { href: "/dashboard/announcements", label: "Announcements", Icon: Megaphone },
-  { href: "/dashboard/events", label: "Events", Icon: CalendarDays },
-  {href: "/dashboard/homily", label: "Reflections", Icon: Megaphone},
-  {href: '/dashboard/clergy', label: 'Clergy', Icon: Megaphone},
-  {href:  "/dashboard/blog", label: "Blogs", Icon: Megaphone},
-];
+import { LayoutDashboard, Megaphone, CalendarDays, Users } from "lucide-react";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const NAV_BY_ROLE: Record<string, Array<{ href: string; label: string; Icon: any }>> = {
+  bishop: [
+    { href: "/dashboard/bishop", label: "Overview", Icon: LayoutDashboard },
+    // { href: "/dashboard/bishop/announcements", label: "Announcements", Icon: Megaphone },
+    // { href: "/dashboard/bishop/events", label: "Events", Icon: CalendarDays },
+    { href: "/dashboard/bishop/homily", label: "Reflections", Icon: Megaphone },
+    // { href: "/dashboard/bishop/clergy", label: "Clergy", Icon: Users },
+    // { href: "/dashboard/bishop/blog", label: "Blogs", Icon: Megaphone },
+  ],
+  admin: [
+    { href: "/dashboard/admin", label: "Overview", Icon: LayoutDashboard },
+    { href: "/dashboard/admin/announcements", label: "Announcements", Icon: Megaphone },
+    { href: "/dashboard/admin/events", label: "Events", Icon: CalendarDays },
+    { href: "/dashboard/admin/clergy", label: "Clergy", Icon: Users },
+  ],
+  clergy: [
+    { href: "/dashboard/clergy", label: "Overview", Icon: LayoutDashboard },
+    { href: "/dashboard/clergy/homily", label: "Reflections", Icon: Megaphone },
+    { href: "/dashboard/clergy/events", label: "Events", Icon: CalendarDays },
+  ],
+  // Add more roles as needed
+  default: [
+    { href: "/dashboard", label: "Overview", Icon: LayoutDashboard },
+  ],
+};
 
 export default function Sidebar({
   variant = "desktop",
   onNavigate,
+  role,
 }: {
   variant?: "desktop" | "mobile";
   onNavigate?: () => void;
+  role: string;
 }) {
   const pathname = usePathname();
+  // Select nav items based on role, fallback to default if role is not defined
+  const navItems = NAV_BY_ROLE[role.toLowerCase()] || NAV_BY_ROLE.default;
 
   return (
-    <nav className={variant === "mobile" ? "space-y-1" : "sticky top-20 space-y-1 "}>
-      {NAV.map(({ href, label, Icon }) => {
+    <nav className={variant === "mobile" ? "space-y-1" : "sticky top-20 space-y-1"}>
+      {navItems.map(({ href, label, Icon }) => {
         const active = pathname === href || pathname.startsWith(href + "/");
         return (
           <Link
