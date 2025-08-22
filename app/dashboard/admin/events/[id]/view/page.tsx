@@ -1,4 +1,3 @@
-// app/dashboard/events/[slug]/page.tsx
 import prisma from "@/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +6,6 @@ import { revalidatePath } from "next/cache";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
-// Optional: better metadata in admin
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const ev = await prisma.event.findUnique({
