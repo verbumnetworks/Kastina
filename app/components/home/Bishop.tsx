@@ -6,7 +6,7 @@ import AnimatedButton from "../button/Button";
 
 const BishopSection = () => {
   return (
-    <section className="w-full py-16 px-4 md:px-20 bg-white bg-gradient-to-r from-[#ede4cd] to-[#CBC2AE]">
+    <section className="w-full py-16 px-4 md:px-20  bg-[#FFD700]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Text Section with Animation */}
         <motion.div
@@ -15,10 +15,10 @@ const BishopSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl md:text-4xl text-center font-bold mb-4 text-gray-900">
+          <h2 className="text-2xl md:text-4xl text-center font-bold mb-4">
             Welcome Address
           </h2>
-          <p className="text-gray-800 mb-6 text-justify leading-relaxed">
+          <p className="mb-6 text-justify leading-relaxed">
             On behalf of the Diocese, we warmly welcome you to our online home.
             Under the spiritual guidance of our beloved Bishop, we remain
             committed to nurturing faith, fostering unity, and serving our
@@ -36,7 +36,7 @@ const BishopSection = () => {
 
         {/* Image Section with Animation */}
         <motion.div
-          className="relative w-full h-64 md:h-[400px] bg-gray-200"
+          className="relative w-full h-64 md:h-[400px]"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -46,7 +46,7 @@ const BishopSection = () => {
             src="/assets/bishop.png"
             alt="Bishop Image"
             fill
-            className="object-scale-down rounded-lg shadow-lg "
+            className="object-scale-down"
             priority
           />
         </motion.div>

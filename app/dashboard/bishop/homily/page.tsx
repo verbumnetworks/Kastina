@@ -53,7 +53,7 @@ export default async function HomilyList({ params }: Props) {
         </div>
 
         <Link
-          href="/dashboard/homily/new"
+          href="/dashboard/bishop/homily/new"
           className="inline-flex items-center gap-2 rounded-xl bg-amber-500 px-4 py-2 text-sm font-medium text-white hover:bg-amber-600"
         >
           <span>+ Add New</span>
@@ -92,13 +92,13 @@ export default async function HomilyList({ params }: Props) {
                     <div className="flex flex-wrap gap-3">
                       <Link
                         className="text-blue-700 hover:underline"
-                        href={`/dashboard/homily/${a.slug}/view`}
+                        href={`/dashboard/bishop/homily/${a.slug}/view`}
                       >
                         View
                       </Link>
                       <Link
                         className="text-emerald-700 hover:underline"
-                        href={`/dashboard/homily/${a.slug}/edit`}
+                        href={`/dashboard/bishop/homily/${a.slug}/edit`}
                       >
                         Edit
                       </Link>
@@ -107,7 +107,7 @@ export default async function HomilyList({ params }: Props) {
                       </Link> */}
                       <Link
                         className="text-red-700 hover:underline"
-                        href={`/dashboard/homily/${a.slug}?delete=1`}
+                        href={`/dashboard/bishop/homily/${a.slug}?delete=1`}
                       >
                         Delete
                       </Link>

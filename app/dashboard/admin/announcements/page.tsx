@@ -97,13 +97,13 @@ export default async function AnnouncementsList({ params }: Props) {
                     <div className="flex flex-wrap gap-3">
                       <Link
                         className="text-blue-700 hover:underline"
-                        href={`/dashboard/announcements/${a.slug}/view`}
+                        href={`/dashboard/admin/announcements/${a.slug}/view`}
                       >
                         View
                       </Link>
                       <Link
                         className="text-emerald-700 hover:underline"
-                        href={`/dashboard/announcements/${a.slug}/edit`}
+                        href={`/dashboard/admin/announcements/${a.slug}/edit`}
                       >
                         Edit
                       </Link>

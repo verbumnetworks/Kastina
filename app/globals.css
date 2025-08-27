@@ -10,10 +10,6 @@
 }
 
 
-body {
-  
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 .swiper-pagination {
   @apply !bottom-6 !z-50;

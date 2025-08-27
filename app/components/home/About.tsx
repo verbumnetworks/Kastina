@@ -26,7 +26,7 @@ export default function OurVision() {
           <h2 className="text-3xl md:text-4xl font-semibold text-[#0C1A2B]">
             OUR VISION
           </h2>
-          <p className="text-gray-700 text-justify leading-relaxed">
+          <p className=" text-justify leading-relaxed">
             The announcement of the creation of the new Ecclesiastical
             jurisdiction known as Catholic Diocese of Katsina was conveyed to
             the world on Monday, 16th October 2023 from the Vatican. In doing

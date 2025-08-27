@@ -70,6 +70,10 @@ export default async function ClergyDirectory({
                 <span className="mr-2">👤</span>
                 {item.role}
               </p>
+               <p className="text-yellow-700 font-medium flex items-center mb-2">
+                <span className="mr-2">👤</span>
+                {item.parish}
+              </p>
               <p className="text-gray-600 flex items-center mb-2">
                 <span className="mr-2">📍</span>
                 {item.address}

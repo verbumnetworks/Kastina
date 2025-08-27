@@ -1,33 +1,26 @@
 import type { Metadata } from "next";
+
 import "../globals.css";
-import { Footer } from "../components/footer/Footer";
 import Nav from "../components/navbar/Nav";
 import FaithBanner from "../components/faith/FaithBanner";
-// import SupportUsBanner from "../components/banner/SupportUs";
+import { Footer } from "../components/footer/Footer";
+import { openSans } from "@/font";
 
 
 
 export const metadata: Metadata = {
-  title: "Catholic Diocese of Kastina",
-  description: "Catholic Diocese of Kastina",
+  title: "Catholic Diocese of Katsina",
+  description: "Catholic Diocese of Katsina",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={`$ antialiased`}
-      >
-        <Nav/>
-        {children}
-        <FaithBanner/>
-        {/* <SupportUsBanner /> */}
-        {/* Footer */}
-        <Footer/>
+    <html lang="en" className={`${openSans.variable}`}>
+      <body className="antialiased bg-white text-gray-900">
+        <Nav />
+        <main className="min-h-screen">{children}</main>
+        <FaithBanner />
+        <Footer />
       </body>
     </html>
   );

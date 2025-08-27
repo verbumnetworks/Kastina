@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 async function createClergy(formData: FormData) {
@@ -114,12 +115,12 @@ export default function NewClergyPage() {
           >
             Save
           </button>
-          <a
-            href="/dashboard/clergy"
+          <Link
+            href="/dashboard/admin/clergy"
             className="rounded-xl border px-4 py-2 hover:bg-slate-50"
           >
             Cancel
-          </a>
+          </Link>
         </div>
       </form>
     </div>

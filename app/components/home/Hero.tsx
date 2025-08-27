@@ -7,35 +7,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { slideData } from '@/lib/slide';
 
-const slides = [
-  {
-    title: 'POPE FRANCIS',
-    subtitle: '1936–2025',
-    text: 'The Church in Sydney and Australia joins with people around the world in mourning the passing of the Holy Father, Pope Francis.',
-    image: '/assets/popeleo1.jpeg',
-  },
-  {
-    title: 'POPE BENEDICT XVI',
-    subtitle: '1927–2022',
-    text: 'A brilliant theologian and devoted servant to the Catholic Church, remembered for his humility and leadership.',
-    image: '/assets/popeleo2.jpeg',
-  },
-  {
-    title: 'POPE JOHN PAUL II',
-    subtitle: '1920–2005',
-    text: 'A beloved global spiritual leader who inspired generations through faith, courage, and peace.',
-    image: '/assets/popeleo3.jpeg',
-  },
-  {
-    title: 'POPE LEO XIII',
-    subtitle: '1810–1903',
-    text: 'Known for his social teachings and intellectual guidance during industrial and political change.',
-    image: '/assets/popeleo.jpeg',
-  },
-];
+
 
 export default function HeroCarousel() {
   const progressRef = useRef<HTMLDivElement>(null);
@@ -68,8 +45,8 @@ export default function HeroCarousel() {
         }}
         className="w-full h-full"
       >
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
+        {slideData.map((slide) => (
+          <SwiperSlide key={slide.title}>
             <div className="flex flex-col-reverse md:flex-row w-full h-full ">
               {/* Text Content */}
               <div className="flex-1 flex flex-col justify-center items-center text-center px-6 md:px-16 bg-white">
