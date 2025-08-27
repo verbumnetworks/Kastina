@@ -1,13 +1,17 @@
 "use client";
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { deleteAnnouncement } from "@/app/dashboard/actions/delete";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 type Props = {
   children?: React.ReactNode;        // optional custom trigger text
   label?: string;                    // fallback trigger text
   title?: string;                    // modal title
   message?: string;                  // modal body
-  busyText?: string;                 // while submitting
+  busyText?: string;
+  id: string;
+  module: string;
 };
 
 export default function ConfirmDelete({
@@ -16,10 +20,36 @@ export default function ConfirmDelete({
   title = "Delete item",
   message = "Are you sure you want to delete this item? This action cannot be undone.",
   busyText = "Deleting...",
+  id,
+  module
 }: Props) {
   const [open, setOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const handleDelete = async () => {
+    setSubmitting(true)
 
+  try {
+      switch (module) {
+        case 'announcement':
+          await deleteAnnouncement(id)
+          break;
+        case 'event':
+          //delete events here
+          break;
+        default:
+          break;
+      }
+  } catch (error: any) {
+    if (error.code =="P2025"){
+      toast.error("The item is not found or has been deleted")
+    }else{
+      toast.error("Deleting failed, check your internet connection and retry!")    
+    }
+  }
+
+    setSubmitting(false)
+    setOpen(false)
+  }
   return (
     <>
       {/* Trigger */}
@@ -55,7 +85,7 @@ export default function ConfirmDelete({
               {/* IMPORTANT: this button submits the PARENT <form action=...> */}
               <button
                 type="submit"
-                onClick={() => setSubmitting(true)}
+                onClick={handleDelete}
                 className="rounded-lg bg-red-600 px-3 py-1.5 text-sm text-white hover:bg-red-700 disabled:opacity-70"
                 disabled={submitting}
               >

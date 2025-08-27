@@ -11,18 +11,16 @@ function isRecordNotFound(e: any) {
 }
 
 /* =========================
-   ANNOUNCEMENTS (by slug)
+   ANNOUNCEMENTS (by id)
    ========================= */
-export async function deleteAnnouncement(formData: FormData) {
-  const slug = String(formData.get("slug") ?? "");
-  if (!slug) return;
-
+export async function deleteAnnouncement(id: string) {
+  if (!id) return;
   try {
-    await prisma.announcement.delete({ where: { slug } });
+    await prisma.announcement.delete({ where: { id } });
   } catch (e: any) {
     if (!isRecordNotFound(e)) throw e;
   }
-  revalidatePath("/dashboard/announcements");
+  revalidatePath("/dashboard/admin/announcements");
 }
 
 /* ================

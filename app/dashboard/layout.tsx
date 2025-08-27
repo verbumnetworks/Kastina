@@ -4,6 +4,7 @@ import SideBar from "@/app/components/dashboard/SideBar";
 import TopBar from "@/app/components/dashboard/TopBar";
 import { getServerSession } from "next-auth";
 import authOptions from "@/lib/authOptions";
+import Toast from "../components/toast";
 
 export const metadata: Metadata = {
   title: "Catholic Diocese of Kastina",
@@ -25,6 +26,7 @@ export default async function DashboardLayout({
       <body className={`$ antialiased`}>
         <div className="min-h-dvh bg-slate-300">
           <TopBar role={role} />
+          <Toast />
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-12 gap-6 py-6">
               {/* Sidebar (desktop) */}{" "}

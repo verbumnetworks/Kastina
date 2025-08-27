@@ -2,8 +2,6 @@ import prisma from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
 import ConfirmDelete from "@/app/components/button/confirmDeleteButton";
-import { deleteAnnouncement } from "../../actions/delete";
-
 
 export const dynamic = "force-dynamic";
 
@@ -29,7 +27,7 @@ export default async function AnnouncementsList({ params }: Props) {
     prisma.announcement.count(),
     prisma.announcement.findMany({
       orderBy: { date: "desc" },
-      select: { title: true, slug: true, image: true },
+      select: { title: true, slug: true, image: true, id: true },
       skip,
       take: pageSize,
     }),
@@ -116,14 +114,15 @@ export default async function AnnouncementsList({ params }: Props) {
                       >
                         Delete
                       </Link> */}
-                      <form action={deleteAnnouncement}>
-                        <input type="hidden" name="slug" value={a.slug} />
+                      <div>
                         <ConfirmDelete
                           title="Delete announcement"
                           message={`This will permanently delete “${a.title}”.`}
                           busyText="Deleting..."
+                          id={a.id}
+                          module="announcement"
                         />
-                      </form>
+                      </div>
                     </div>
                   </td>
                 </tr>
