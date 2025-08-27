@@ -56,7 +56,7 @@ export default async function AnnouncementsList({ params }: Props) {
         </div>
 
         <Link
-          href="/dashboard/announcements/new"
+          href="/dashboard/admin/announcements/new"
           className="inline-flex items-center gap-2 rounded-xl bg-amber-500 px-4 py-2 text-sm font-medium text-white hover:bg-amber-600"
         >
           <span>+ Add New</span>
