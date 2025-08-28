@@ -27,7 +27,7 @@ export default function CoatOfArmsPage() {
         </div>
 
         {/* Content */}
-        <div className="prose prose-gray max-w-none mx-auto">
+        <div className="max-w-none mx-auto text-justify">
           <p>
             Coats of arms, originating in Europe during the late 11th century, were initially
             employed on the battlefield for warriors to distinguish their comrades. These same
@@ -45,28 +45,28 @@ export default function CoatOfArmsPage() {
             includes personal and diocesan symbols: a shield, hat, scroll with motto, and cross.
           </p>
 
-          <h2>The Coat of Arms (Crest) of Bishop Gerald Mamman Musa</h2>
+          <h2 className='font-bold text-black my-2'>The Coat of Arms (Crest) of Bishop Gerald Mamman Musa</h2>
           <p>
             Bishop Gerald upholds heraldic tradition with a shield bearing symbols, a scroll with
             his motto, a bishop&rsquo;s hat (gallero), and a processional cross. The green gallero
             with six tassels on each side signifies his rank. The scroll contains his motto written
             in Hausa: <strong>Ubangiji Na Tare Da Mu</strong> (&ldquo;The Lord is with us&rdquo;),
             echoing Jesus&apos; promise in Matthew 28:20.
-          </p>
+          </p> 
 
-          <h3>The Holy Spirit</h3>
+          <h3 className='font-bold text-black mb-1.5 mt-1.5'>The Holy Spirit</h3>
           <p>
             The dove represents the Holy Spirit&rsquo;s subtle yet powerful presence, guiding and
             empowering believers and evangelization efforts in Katsina Diocese.
           </p>
 
-          <h3>Corn</h3>
+          <h3 className='font-bold text-black mb-1.5 mt-1.5'>Corn</h3>
           <p>
             Symbolizing divine provision through nature, the corn plant—common in Katsina and a
             staple food—represents sustenance and life for agrarian communities.
           </p>
 
-          <h3>Northern Knot</h3>
+          <h3 className='font-bold text-black mb-1.5 mt-1.5'>Northern Knot</h3>
           <p>
             Historically found on Hausa buildings and in early church mosaics, the Northern Knot
             symbolizes unity and Christian-Muslim coexistence. It encourages collaborative

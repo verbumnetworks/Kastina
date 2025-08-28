@@ -6,7 +6,7 @@ import AnimatedButton from "../button/Button";
 
 const BishopSection = () => {
   return (
-    <section className="w-full py-16 px-4 md:px-20  bg-[#FFD700]">
+    <section className="w-full py-16 px-4 md:px-20  bg-[#f7f5e8]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Text Section with Animation */}
         <motion.div

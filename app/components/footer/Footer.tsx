@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 export const Footer = () => {
   return (
     <footer className="bg-[#000] text-white py-12 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 text-justify">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-justify">
         <div>
           <h2 className="text-white text-lg font-bold mb-2">
             Catholic Diocese of katsina

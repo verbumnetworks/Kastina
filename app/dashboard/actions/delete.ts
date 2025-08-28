@@ -66,7 +66,6 @@ export async function deleteClergy(id: string) {
 /* =========================
    EVENT (id OR slug accepted)
    ========================= */
-const isObjectId = (v: string) => /^[a-f0-9]{24}$/i.test(v);
 
 export async function deleteEvent(id: string) {
   if (!id) return;
@@ -76,5 +75,5 @@ export async function deleteEvent(id: string) {
   } catch (e: any) {
     if (!isRecordNotFound(e)) throw e;
   }
-  revalidatePath("/dashboard/events");
+  revalidatePath("/dashboard/admin/events");
 }

@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 import { getImageAuth } from "@/lib/imageKit";
 import slugifyWithUniqueSuffix from "@/lib/slugify";
-import { createAnnouncement, createBlog } from "@/app/dashboard/actions/create";
+import {createBlog } from "@/app/dashboard/actions/create";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 

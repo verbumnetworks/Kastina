@@ -1,18 +1,14 @@
-'use client';
+"use client";
 
-import { useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay, } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
-
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { slideData } from '@/lib/slide';
-
-
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { slideData } from "@/lib/slide";
 
 export default function HeroCarousel() {
   const progressRef = useRef<HTMLDivElement>(null);
@@ -25,31 +21,27 @@ export default function HeroCarousel() {
       className="relative w-full h-[50vh] md:h-[80vh] overflow-hidden"
     >
       <Swiper
-        modules={[Navigation, Autoplay, Pagination]}
+        modules={[Navigation, Autoplay]}
         slidesPerView={1}
         loop
         autoplay={{ delay: 6000, disableOnInteraction: false }}
         navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }}
-        pagination={{
-          el: '.swiper-pagination',
-          clickable: true,
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         }}
         onAutoplayTimeLeft={(_, time, progress) => {
           if (progressRef.current) {
             progressRef.current.style.width = `${progress * 10}%`;
-            progressRef.current.setAttribute('aria-valuenow', time.toFixed(0));
+            progressRef.current.setAttribute("aria-valuenow", time.toFixed(0));
           }
         }}
         className="w-full h-full"
       >
         {slideData.map((slide) => (
           <SwiperSlide key={slide.title}>
-            <div className="flex flex-col-reverse md:flex-row w-full h-full ">
+            <div className="flex flex-col-reverse md:flex-row w-full h-full">
               {/* Text Content */}
-              <div className="flex-1 flex flex-col justify-center items-center text-center px-6 md:px-16 bg-white">
+              <div className="hidden md:flex-1 md:flex flex-col justify-center items-center text-center px-6 md:px-16 bg-white">
                 <motion.h2
                   className="text-4xl md:text-6xl font-extrabold"
                   initial={{ opacity: 0, y: 30 }}
@@ -76,37 +68,43 @@ export default function HeroCarousel() {
                 >
                   {slide.text}
                 </motion.p>
-
-
               </div>
 
               {/* Image Content */}
-              <div className="flex-1 relative w-full h-[40vh] md:h-full">
+              <div className="flex-1 relative w-full h-full ">
                 <Image
                   src={slide.image}
                   alt={slide.title}
                   fill
-                  className="object-cover"
                   priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-top"
                 />
               </div>
+              {/* <div className="flex-1 relative w-full h-full bg-black">
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-scale-down object-center md:object-cover md:object-center w-full"
+                />
+              </div> */}
             </div>
           </SwiperSlide>
         ))}
 
         {/* Custom Navigation Arrows */}
-        <div className="swiper-button-prev !text-white !text-2xl md:!text-4xl z-30" />
-        <div className="swiper-button-next !text-white !text-2xl md:!text-4xl z-30" />
-
-        {/* Dots Pagination */}
-        <div className="swiper-pagination absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2" />
+        <div className="swiper-button-prev !text-black !font-bold !text-2xl md:!text-4xl z-30" />
+        <div className="swiper-button-next !text-black !font-bold !text-2xl md:!text-4xl z-30" />
 
         {/* Progress Bar */}
         <div className="absolute top-0 left-0 h-[4px] w-full bg-gray-300 z-40">
           <div
             ref={progressRef}
             className="h-full bg-yellow-600 ease-linear"
-            style={{ transition: 'width 0.1s linear' }}
+            style={{ transition: "width 0.1s linear" }}
           />
         </div>
       </Swiper>

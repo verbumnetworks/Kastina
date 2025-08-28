@@ -8,11 +8,9 @@ import Image from "next/image";
 import { getImageAuth } from "@/lib/imageKit";
 import slugifyWithUniqueSuffix from "@/lib/slugify";
 import {
-  createAnnouncement,
   createHomily,
 } from "@/app/dashboard/actions/create";
-import { ArrowLeft } from "lucide-react";
-import { useRouter } from "next/navigation";
+// import { ArrowLeft } from "lucide-react";
 
 export interface HomilyFormData {
   title: string;
@@ -35,7 +33,6 @@ export default function NewHomilyPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Partial<HomilyFormData>>({});
-  const router = useRouter();
   // Auto-generate slug with unique suffix from title to help us and the user
   //I expect you to do this for everything that has slug
   useEffect(() => {

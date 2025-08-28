@@ -15,10 +15,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${openSans.variable}`}>
-      <body className="antialiased bg-white text-gray-900">
+    <html lang="en" >
+      <body className={`${openSans.className} antialiased bg-white text-gray-900`}>
         <Nav />
         <main className="min-h-screen">{children}</main>
+
         <FaithBanner />
         <Footer />
       </body>
