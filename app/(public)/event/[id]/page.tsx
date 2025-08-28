@@ -2,23 +2,27 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getEventBySlug } from "@/lib/events";
 import EventGallery from "../EventGallery";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
-type Params = { params:Promise< { id: string }> };
-
+type Params = { params: Promise<{ id: string }> };
 
 export async function generateMetadata({ params }: Params) {
-  const {id} = await params;
+  const { id } = await params;
   const e = getEventBySlug(id);
   return { title: e ? e.title : "Event" };
 }
 
 export default async function EventDetailPage({ params }: Params) {
-  const { id } =await params;
+  const { id } = await params;
   const event = getEventBySlug(id);
   if (!event) return notFound();
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-12">
+      <Link href="/event">
+      <ArrowLeft className="my-4 inline"/> Back to events
+      </Link>
       <div className="flex items-start gap-4">
         <div className="relative h-28 w-28 overflow-hidden rounded-lg border bg-white">
           <Image src={event.cover} alt={event.title} fill className="object-cover" />

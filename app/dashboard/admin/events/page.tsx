@@ -42,7 +42,7 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
         <h1 className="text-2xl font-semibold">Events</h1>
         <Link
           href="/dashboard/admin/events/new"
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+          className="bg-[#D6A739] text-white px-4 py-2 rounded-lg"
         >
           + New Event
         </Link>
@@ -59,7 +59,7 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
         />
         <button
           type="submit"
-          className="ml-2 bg-blue-600 text-white px-4 py-2 rounded-lg"
+          className="ml-2 bg-[#D6A739] text-white px-4 py-2 rounded-lg"
         >
           Search
         </button>
@@ -126,7 +126,7 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
               }}
               className={`px-4 py-2 rounded-lg ${page === 1
                   ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                  : "bg-blue-600 text-white"
+                  : "bg-[#D6A739] text-white"
                 }`}
             >
               Previous
@@ -141,7 +141,7 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
               }}
               className={`px-4 py-2 rounded-lg ${page === totalPages
                   ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                  : "bg-blue-600 text-white"
+                  : "bg-[#D6A739] text-white"
                 }`}
             >
               Next
