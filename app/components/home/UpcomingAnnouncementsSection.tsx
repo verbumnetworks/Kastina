@@ -12,7 +12,7 @@ export default function UpcomingAnnouncementsSection()
     <section className="bg-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
           <SectionHeading
-                  title=" Diocesean Announcements"
+                  title="  Upcoming Diocesean Events"
                   subtitle="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
 
@@ -43,7 +43,7 @@ export default function UpcomingAnnouncementsSection()
         </div>
 
         <div className="mt-10 text-center">
-            <AnimatedButton href="/announcement" label=" View All Announcements" variant='secondary' />
+            <AnimatedButton href="/announcement" label=" View All" variant='secondary' />
         
         </div>
       </div>

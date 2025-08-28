@@ -3,8 +3,8 @@ import Link from "next/link";
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 export const Footer = () => {
   return (
-    <footer className="bg-[#222222] text-gray-300 py-12 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-8 text-center">
+    <footer className="bg-[#000] text-white py-12 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 text-justify">
         <div>
           <h2 className="text-white text-lg font-bold mb-2">
             Catholic Diocese of katsina
@@ -16,28 +16,25 @@ export const Footer = () => {
             Musa as its first Bishop.
           </p>
         </div>
-        <div>
+        {/* <div>
           <h3 className="text-white font-semibold mb-3">Cathedral</h3>
           <ul className="space-y-2 text-sm">
             <li>Parishes</li>
             <li>Schools</li>
             <li>Chaplaincies</li>
-            {/* <li></li>
-            <li>Volunteer</li> */}
+            <li></li>
+            <li>Volunteer</li>
           </ul>
-        </div>
+        </div> */}
 
         <div>
           <h3 className="text-white font-semibold mb-3">Useful Links</h3>
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-2 text-sm ">
             <Link href="/about">
               <li>About</li>
             </Link>
             <Link href="/contact">
               <li>Contact</li>
-            </Link>
-            <Link href="/cathecatical">
-              <li>Cathecatical center</li>
             </Link>
             <Link href="/ history">
               <li>History</li>
@@ -52,11 +49,46 @@ export const Footer = () => {
               <li>News</li>
             </Link>
             <Link href="/support">
-              <li>Donate</li>
+              <li>Support</li>
             </Link>
             <Link href="/events">
               <li>Events</li>
             </Link>
+            <Link href="/cathecatical">
+              <li>Cathecatical</li>
+            </Link>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-white font-semibold mb-3">Useful Links</h3>
+          <ul className="space-y-2 text-sm ">
+            <Link href="/bishop">
+              <li>Bishop</li>
+            </Link>
+            <Link href="/coat">
+              <li>Coat Of Arm</li>
+            </Link>
+            <Link href="/clergy">
+              <li>Clergy</li>
+            </Link>
+            <Link href="/people">
+              <li>Offices</li>
+            </Link>
+            <Link href="/gallery">
+              <li>Gallery</li>
+            </Link>
+            <Link href="/blog">
+              <li>News</li>
+            </Link>
+            <Link href="/support">
+              <li>Support</li>
+            </Link>
+            <Link href="/events">
+              <li>Events</li>
+            </Link>
+            {/* <Link href="/organization">
+              <li>Organizations</li>
+            </Link> */}
           </ul>
         </div>
 

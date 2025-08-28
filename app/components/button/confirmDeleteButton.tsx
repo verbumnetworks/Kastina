@@ -1,14 +1,14 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { deleteAnnouncement } from "@/app/dashboard/actions/delete";
+import { deleteAnnouncement, deleteBlog, deleteClergy, deleteHomily } from "@/app/dashboard/actions/delete";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
 type Props = {
-  children?: React.ReactNode;        // optional custom trigger text
-  label?: string;                    // fallback trigger text
-  title?: string;                    // modal title
-  message?: string;                  // modal body
+  children?: React.ReactNode;
+  label?: string;                    
+  title?: string;                    
+  message?: string;                 
   busyText?: string;
   id: string;
   module: string;
@@ -33,6 +33,16 @@ export default function ConfirmDelete({
         case 'announcement':
           await deleteAnnouncement(id)
           break;
+            case 'blog':
+          await deleteBlog(id)
+          break;
+            case 'homily':
+          await deleteHomily(id)
+          break;
+              case 'clergy':
+          await deleteClergy(id)
+          break;
+
         case 'event':
           //delete events here
           break;
@@ -46,7 +56,6 @@ export default function ConfirmDelete({
       toast.error("Deleting failed, check your internet connection and retry!")    
     }
   }
-
     setSubmitting(false)
     setOpen(false)
   }

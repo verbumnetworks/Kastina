@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ id: string }> };
 
-// (Optional) SEO for the admin view page
 export async function generateMetadata({ params }: Props) {
   const {id} = await params;
   const item = await prisma.blog.findUnique({
@@ -57,7 +56,7 @@ export default async function AdminBlogView({ params }: Props) {
             Edit
           </Link>
           <Link
-            href="/dashboard/blog"
+            href="/dashboard/admin/blog"
             className="rounded-lg border px-3 py-1.5 text-sm hover:bg-slate-50"
           >
             ← Back

@@ -105,15 +105,7 @@ export default async function AnnouncementsList({ params }: Props) {
                       >
                         Edit
                       </Link>
-                      {/* <Link className="text-emerald-700 hover:underline" href={`/dashboard/announcements/id/edit${a.slug}`}>
-                        Edit
-                      </Link> */}
-                      {/* <Link
-                        className="text-red-700 hover:underline"
-                        href={`/dashboard/announcements/${a.slug}?delete=1`}
-                      >
-                        Delete
-                      </Link> */}
+                      
                       <div>
                         <ConfirmDelete
                           title="Delete announcement"

@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
+import ConfirmDelete from "@/app/components/button/confirmDeleteButton";
 
 export const dynamic = "force-dynamic";
 
@@ -26,7 +27,7 @@ export default async function BlogList({ params }: Props) {
     prisma.blog.count(),
     prisma.blog.findMany({
       orderBy: { date: "desc" },
-      select: { title: true, slug: true, image: true },
+      select: { title: true, slug: true, image: true, id: true },
       skip,
       take: pageSize,
     }),
@@ -81,6 +82,7 @@ export default async function BlogList({ params }: Props) {
                           src={a.image}
                           alt={a.title}
                           fill
+                          loading="lazy"
                           className="object-cover"
                         />
                       ) : null}
@@ -102,15 +104,16 @@ export default async function BlogList({ params }: Props) {
                       >
                         Edit
                       </Link>
-                      {/* <Link className="text-emerald-700 hover:underline" href={`/dashboard/announcements/id/edit${a.slug}`}>
-                        Edit
-                      </Link> */}
-                      <Link
-                        className="text-red-700 hover:underline"
-                        href={`/dashboard/blog/${a.slug}?delete=1`}
-                      >
-                        Delete
-                      </Link>
+                     
+                      <div>
+                        <ConfirmDelete
+                          title="Delete news"
+                          message={`This will permanently delete “${a.title}”.`}
+                          busyText="Deleting..."
+                          id={a.id}
+                          module="blog"
+                        />
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -119,7 +122,7 @@ export default async function BlogList({ params }: Props) {
               {items.length === 0 && (
                 <tr>
                   <td className="px-4 py-6 text-slate-500" colSpan={4}>
-                    No blog yet.
+                    No news yet.
                   </td>
                 </tr>
               )}

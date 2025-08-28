@@ -3,49 +3,151 @@ export interface PiousOrganization {
   title: string;
   image: string;
   description: string;
+  chaplain: string;
 }
 
 export const piousOrganizations: PiousOrganization[] = [
   {
     id: 1,
-    title: 'Catholic Women Organisation (CWO)',
-    image: '/assets/logo.jpg',
+    title: "Catholic Men Organisation (CMO)",
+    image: "/assets/pic13.jpg",
     description:
-      'A vibrant group of Catholic women committed to spiritual growth, family life, and community service.',
+      "Men of faith dedicated to leadership, service, and the spiritual development of the family and parish.",
+    chaplain: "Fr. Ajiboh Festus",
   },
   {
     id: 2,
-    title: 'Catholic Men Organisation (CMO)',
-    image: '/assets/popeleo1.jpeg',
+    title: "Catholic Women Organisation (CWO) / Zumuntar Mata",
+    image: "/assets/pic14.jpg",
     description:
-      'Men of faith dedicated to leadership, service, and the spiritual development of the family and parish.',
+      "A vibrant group of Catholic women committed to spiritual growth, family life, and community service.",
+    chaplain: "Fr. Kelvin Obineche / Fr. Reuben Amodu",
   },
   {
     id: 3,
-    title: 'Catholic Youth Organisation of Nigeria (CYON)',
-    image: '/assets/cyon.jpeg',
+    title: "Catholic Youth Organisation of Nigeria (CYON) / NACC",
+    image: "/assets/pic16.jpg",
     description:
-      'Dynamic youth fostering Christian values through evangelization, community, and peer mentorship.',
+      "Dynamic youth fostering Christian values through evangelization, community, and peer mentorship.",
+    chaplain: "Fr. Lemark Peter",
   },
   {
     id: 4,
-    title: 'Legion of Mary',
-    image: '/assets/vexilium.jpeg',
+    title: "Biblical Apostolate (CBIU)",
+    image: "/assets/pic17.jpg",
     description:
-      'A lay apostolic association focused on prayer, evangelization, and devotion to the Blessed Virgin Mary.',
+      "A lay apostolic association focused on promoting Scripture study, evangelization, and deepening faith.",
+    chaplain: "Fr. Casmir Obi",
   },
   {
     id: 5,
-    title: 'Sacred Heart of Jesus and Immaculate Heart of Mary',
-    image: '/assets/heart.jpeg',
+    title: "Choir",
+    image: "/assets/pic11.jpg",
     description:
-      'Members promote the love of the Sacred Heart of Jesus and the Immaculate Heart of Mary through prayer and devotion.',
+      "A dedicated group that enriches liturgy and worship through sacred music and singing.",
+    chaplain: "Fr. Chibi Samaila",
   },
   {
     id: 6,
-    title: 'Block Rosary Crusade',
-    image: '/assets/block.jpeg',
+    title: "Zumuncin Maza",
+    image: "/assets/pic1.jpg",
     description:
-      'Children-led Marian prayer group focused on praying the Rosary and learning about the Catholic faith.',
+      "A fellowship of Catholic men strengthening one another in faith, service, and community bonding.",
+    chaplain: "Msgr. Atado Joseph",
+  },
+  {
+    id: 7,
+    title: "Sabon Rai",
+    image: "/assets/pic21.jpg",
+    description:
+      "A group dedicated to evangelization and nurturing new members in the Catholic faith.",
+    chaplain: "Fr. Reuben Amodu",
+  },
+  {
+    id: 8,
+    title: "Knights",
+    image: "/assets/pic22.jpg",
+    description:
+      "Catholic knights committed to charity, unity, fraternity, and defense of the Church.",
+    chaplain: "Fr. Barde",
+  },
+  {
+    id: 9,
+    title: "Charismatic / Holy Name",
+    image: "/assets/pic23.jpg",
+    description:
+      "A renewal movement promoting prayer, praise, healing, and devotion to the Holy Name of Jesus.",
+    chaplain: "Fr. Bahywa John",
+  },
+  {
+    id: 10,
+    title: "NFCS / YCS",
+    image: "/assets/pic30.jpg",
+    description:
+      "National Federation of Catholic Students and Young Catholic Students committed to academic, social, and spiritual growth.",
+    chaplain: "Fr. Ajiboh Festus",
+  },
+  {
+    id: 11,
+    title: "Marian Devotees / Block Rosary",
+    image: "/assets/blockrosary.jpeg",
+    description:
+      "A prayer group dedicated to Marian devotion through the daily recitation of the Rosary.",
+    chaplain: "Fr. Bakoshi Mathais",
+  },
+  {
+    id: 12,
+    title: "St. Vincent De Paul",
+    image: "/assets/pic7.jpg",
+    description:
+      "Lay Catholics serving the poor, sick, and marginalized through charity and works of mercy.",
+    chaplain: "Fr. Ochekwu John",
+  },
+  {
+    id: 13,
+    title: "Holy Childhood Association (HCA)",
+    image: "/assets/pic20.jpg",
+    description:
+      "Children helping children in mission through prayer, sacrifice, and small works of charity.",
+    chaplain: "Fr. Abubakar Musa",
+  },
+  {
+    id: 14,
+    title: "Altar Night",
+    image: "/assets/pic19.jpg",
+    description:
+      "An association of altar servers dedicated to assisting at Mass and fostering devotion to the Eucharist.",
+    chaplain: "Fr. Izuala John",
+  },
+  {
+    id: 15,
+    title: "Catholic Cadet",
+    image: "/assets/pic10.jpg",
+    description:
+      "Young Catholics instilled with discipline, service, and leadership in the spirit of faith.",
+    chaplain: "Fr. Shidi Stephen",
+  },
+  {
+    id: 16,
+    title: "Sacred Heart / Divine Mercy / Precious Blood",
+    image: "/assets/heart.jpeg",
+    description:
+      "Members promote devotion to the Sacred Heart of Jesus, Divine Mercy, and the Precious Blood through prayer and service.",
+    chaplain: "Fr. Asheji Duniya Pius",
+  },
+  {
+    id: 17,
+    title: "Family and Human Life",
+    image: "/assets/pic5.jpg",
+    description:
+      "An apostolate dedicated to strengthening Christian marriage, family values, and the dignity of human life.",
+    chaplain: "Fr. Bakoshi Mathais",
+  },
+  {
+    id: 18,
+    title: "Catholic Bankers",
+    image: "/assets/pic30.jpg",
+    description: "",
+    chaplain: "Fr. Bakoshi Mathais",
   },
 ];

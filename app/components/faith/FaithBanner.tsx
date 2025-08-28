@@ -6,7 +6,8 @@ export default function FaithBanner() {
   return (
     <section className="relative w-full h-[30vh] md:h-[50vh] flex items-center justify-center text-center overflow-hidden bg-[url('/assets/popeleo2.jpeg')] bg-cover bg-center bg-fixed">
       {/* Blue Overlay */}
-      <div className="absolute inset-0 bg-blue-900 opacity-80" />
+      <div className="absolute inset-0 bg-[#800000] opacity-80
+" />
 
       {/* Text Content */}
       <div className="relative z-10 px-4">

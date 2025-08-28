@@ -1,15 +1,15 @@
-'use client';
+"use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useState, FormEvent, ChangeEvent, useEffect } from 'react';
-import { IKUpload, ImageKitProvider } from 'imagekitio-next';
-import { toast } from 'react-toastify';
-import Image from 'next/image';
-import { getImageAuth } from '@/lib/imageKit';
-import slugifyWithUniqueSuffix from '@/lib/slugify';
-import { createAnnouncement } from '@/app/dashboard/actions/create';
-import { ArrowLeft } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useState, FormEvent, ChangeEvent, useEffect } from "react";
+import { IKUpload, ImageKitProvider } from "imagekitio-next";
+import { toast } from "react-toastify";
+import Image from "next/image";
+import { getImageAuth } from "@/lib/imageKit";
+import slugifyWithUniqueSuffix from "@/lib/slugify";
+import { createAnnouncement } from "@/app/dashboard/actions/create";
+import { ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export interface AnnouncementFormData {
   title: string;
@@ -24,12 +24,12 @@ const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 // These two are for image kit provider to work well
 export default function NewAnnouncementPage() {
   const [formData, setFormData] = useState<AnnouncementFormData>({
-    title: '',
-    slug: '',
-    date: '',
-    image: '',
-    description: '',
-    details: '',
+    title: "",
+    slug: "",
+    date: "",
+    image: "",
+    description: "",
+    details: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Partial<AnnouncementFormData>>({});
@@ -38,7 +38,10 @@ export default function NewAnnouncementPage() {
   //I expect you to do this for everything that has slug
   useEffect(() => {
     if (formData.title) {
-      setFormData((prev) => ({ ...prev, slug: slugifyWithUniqueSuffix(formData.title) }));
+      setFormData((prev) => ({
+        ...prev,
+        slug: slugifyWithUniqueSuffix(formData.title),
+      }));
     }
   }, [formData.title]);
   /**
@@ -49,13 +52,14 @@ export default function NewAnnouncementPage() {
     // Initialize an empty errors object with partial AnnouncementFormData type
     const newErrors: Partial<AnnouncementFormData> = {};
     // Validate title field - check if it's empty after trimming whitespace
-    if (!formData.title.trim()) newErrors.title = 'Title is required';
+    if (!formData.title.trim()) newErrors.title = "Title is required";
     // Validate slug field - check if it's empty after trimming whitespace
-    if (!formData.slug.trim()) newErrors.slug = 'Slug is required';
+    if (!formData.slug.trim()) newErrors.slug = "Slug is required";
     // Validate details field - check if it's empty after trimming whitespace
-    if (!formData.details.trim()) newErrors.details = 'Details are required';
+    if (!formData.details.trim()) newErrors.details = "Details are required";
     // Validate description field - check if it's empty after trimming whitespace
-    if (!formData.description.trim()) newErrors.description = 'Description is required';
+    if (!formData.description.trim())
+      newErrors.description = "Description is required";
     // Return the validation errors object
     return newErrors;
   };
@@ -68,7 +72,7 @@ export default function NewAnnouncementPage() {
 
     // Clear error when user starts typing
     if (errors[name as keyof AnnouncementFormData]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
@@ -78,7 +82,7 @@ export default function NewAnnouncementPage() {
     //This is form validation to ensure the expected data goes to the server
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
-      toast.error('Please fill in all required fields');
+      toast.error("Please fill in all required fields");
       return;
     }
 
@@ -87,17 +91,18 @@ export default function NewAnnouncementPage() {
     //Let me know if you see this. Reply with your favourite sticker
     try {
       await createAnnouncement(formData);
-      toast.success('Announcement created successfully');
-      setFormData({ //This is to clear the form after submission
-        title: '',
-        slug: '',
-        date: '',
-        image: '',
-        description: '',
-        details: '',
+      toast.success("Announcement created successfully");
+      setFormData({
+        //This is to clear the form after submission
+        title: "",
+        slug: "",
+        date: "",
+        image: "",
+        description: "",
+        details: "",
       });
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : 'An error occurred');
+      toast.error(error instanceof Error ? error.message : "An error occurred");
       //errors are handled here
     } finally {
       setIsSubmitting(false);
@@ -112,7 +117,7 @@ export default function NewAnnouncementPage() {
     // Update form data with the uploaded image URL while preserving other form fields
     setFormData((prev) => ({ ...prev, image: res.url }));
     // Display success notification to user
-    toast.success('Image uploaded successfully');
+    toast.success("Image uploaded successfully");
   };
 
   /**
@@ -120,13 +125,16 @@ export default function NewAnnouncementPage() {
    * @param {any} err - The error object containing information about what went wrong during the upload
    */
   const onImageUploadError = (err: any) => {
-    toast.error('Image upload failed'); // Display error message to user using toast notification
+    toast.error("Image upload failed"); // Display error message to user using toast notification
     console.error(err);
   };
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <ArrowLeft className='cursor-pointer my-4' onClick={() => router.back()} />
+      <ArrowLeft
+        className="cursor-pointer my-4"
+        onClick={() => router.back()}
+      />
       <h1 className="text-2xl font-semibold mb-4">Create New Announcement</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4" noValidate>
@@ -137,8 +145,9 @@ export default function NewAnnouncementPage() {
             value={formData.title}
             onChange={handleChange}
             required
-            className={`mt-1 w-full rounded-lg border px-3 py-2 ${errors.title ? 'border-red-500' : ''
-              }`}
+            className={`mt-1 w-full rounded-lg border px-3 py-2 ${
+              errors.title ? "border-red-500" : ""
+            }`}
           />
           {errors.title && (
             <span className="text-red-500 text-sm">{errors.title}</span>
@@ -153,8 +162,9 @@ export default function NewAnnouncementPage() {
             onChange={handleChange}
             required
             placeholder="ordination-rev-john-doe"
-            className={`mt-1 w-full rounded-lg border px-3 py-2 ${errors.slug ? 'border-red-500' : ''
-              }`}
+            className={`mt-1 w-full rounded-lg border px-3 py-2 ${
+              errors.slug ? "border-red-500" : ""
+            }`}
           />
           {errors.slug && (
             <span className="text-red-500 text-sm">{errors.slug}</span>
@@ -169,8 +179,9 @@ export default function NewAnnouncementPage() {
             value={formData.date}
             onChange={handleChange}
             required
-            className={`mt-1 w-full rounded-lg border px-3 py-2 ${errors.date ? 'border-red-500' : ''
-              }`}
+            className={`mt-1 w-full rounded-lg border px-3 py-2 ${
+              errors.date ? "border-red-500" : ""
+            }`}
           />
           {errors.date && (
             <span className="text-red-500 text-sm">{errors.date}</span>
@@ -196,7 +207,14 @@ export default function NewAnnouncementPage() {
           {/* Below serves as an image preview of the uploaded image */}
           {formData.image && (
             <div className="mt-2">
-              <Image src={formData.image} alt="Preview" width={100} height={100} className="h-20 w-20 object-cover" />
+              <Image
+                src={formData.image}
+                alt="Preview"
+                width={100}
+                height={100}
+                className="h-20 w-20 object-cover"
+                loading="lazy"
+              />
             </div>
           )}
         </div>
@@ -237,7 +255,7 @@ export default function NewAnnouncementPage() {
             disabled={isSubmitting}
             className="rounded-lg border px-4 py-2 hover:bg-slate-50 disabled:opacity-50"
           >
-            {isSubmitting ? 'Saving...' : 'Save'}
+            {isSubmitting ? "Saving..." : "Save"}
           </button>
         </div>
       </form>

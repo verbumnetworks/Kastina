@@ -59,7 +59,7 @@ export default async function AdminAnnouncementView({ params }: Props) {
             Edit
           </Link>
           <Link
-            href="/dashboard/announcements"
+            href="/dashboard/admin/announcements"
             className="rounded-lg border px-3 py-1.5 text-sm hover:bg-slate-50"
           >
             ← Back

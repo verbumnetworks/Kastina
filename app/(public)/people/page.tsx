@@ -5,70 +5,9 @@ import { motion } from "framer-motion";
 import PageBanner from "../../components/banner/PageBanner";
 import PiousOrganizationsSection from "../../components/organization/PiousOrganisationSection";
 import SectionHeading from "@/app/components/heading/SectionHeading";
+import { team } from "@/lib/team";
 
-interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  image: string;
-}
 
-const team: TeamMember[] = [
-  {
-    id: 1,
-    name: "Most Reverend Gerald Mamman Musa",
-    role: "Bishiop of Katsina Diocese",
-    image: "/assets/bishop.png",
-  },
-  {
-    id: 2,
-    name: "rev. Fr. Gerald Okonkwor",
-    role: "The Vicar General",
-    image: "/assets/building2.jpg",
-  },
-  {
-    id: 3,
-    name: " Rev. Fr. Leo Okonkwo",
-    role: "Chancellor",
-    image: "/assets/popeleo1.jpeg",
-  },
-  {
-    id: 4,
-    name: "Rev. Fr. Chukwudi Okeke",
-    role: "vicar For Priests",
-    image: "/assets/groto.jpg",
-  },
-  //   {
-  //     id: 5,
-  //     name: 'Ms Chinwenma Okorie',
-  //     role: 'Web Developer | Program Coordinator',
-  //     image: '/assets/popeleo.jpeg',
-  //   },
-  //   {
-  //     id: 6,
-  //     name: 'Eze Perculia Chigaemezu',
-  //     role: 'Tutor | Graphics Designer',
-  //     image: '/assets/alyr5-oz1r6.avif',
-  //   },
-  //   {
-  //     id: 7,
-  //     name: 'Ms Chinwenma Okorie',
-  //     role: 'HOD, Marketing',
-  //     image: '/assets/alyr5-oz1r6.avif',
-  //   },
-  //   {
-  //     id: 8,
-  //     name: 'Kingsley Ejiofor',
-  //     role: 'Cafe Attendant',
-  //     image: '/assets/alyr5-oz1r6.avif',
-  //   },
-  //   {
-  //     id: 9,
-  //     name: 'Kosisochukwu Nwankwo',
-  //     role: 'Web Developer',
-  //     image: '/assets/kaosi.jpg',
-  //   },
-];
 
 export default function OurPeoplePage() {
   return (

@@ -8,7 +8,7 @@ export default async function AnnouncementsPage() {
   return (
     <main className="bg-gray-100 ">
         <PageBanner
-        title='Diocesean Announcements'/>
+        title=' Upcoming Diocesean Events'/>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 py-12 px-4">
         {/* Main Announcement Content */}
         <div className="lg:col-span-2 space-y-10">

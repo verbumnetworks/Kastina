@@ -18,11 +18,14 @@ const NAV_BY_ROLE: Record<string, Array<{ href: string; label: string; Icon: any
     { href: "/dashboard/admin/announcements", label: "Announcements", Icon: Megaphone },
     { href: "/dashboard/admin/events", label: "Events", Icon: CalendarDays },
     { href: "/dashboard/admin/clergy", label: "Clergy", Icon: Users },
+    { href: "/dashboard/admin/blog", label: "News", Icon: Users },
+
   ],
   clergy: [
     { href: "/dashboard/clergy", label: "Overview", Icon: LayoutDashboard },
     { href: "/dashboard/clergy/homily", label: "Reflections", Icon: Megaphone },
     { href: "/dashboard/clergy/events", label: "Events", Icon: CalendarDays },
+
   ],
   // Add more roles as needed
   default: [

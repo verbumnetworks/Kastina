@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
+import ConfirmDelete from "@/app/components/button/confirmDeleteButton";
 
 export const dynamic = "force-dynamic";
 
@@ -26,7 +27,7 @@ export default async function HomilyList({ params }: Props) {
     prisma.homily.count(),
     prisma.homily.findMany({
       orderBy: { date: "desc" },
-      select: { title: true, slug: true, image: true },
+      select: { title: true, slug: true, image: true, id: true },
       skip,
       take: pageSize,
     }),
@@ -102,15 +103,15 @@ export default async function HomilyList({ params }: Props) {
                       >
                         Edit
                       </Link>
-                      {/* <Link className="text-emerald-700 hover:underline" href={`/dashboard/announcements/id/edit${a.slug}`}>
-                        Edit
-                      </Link> */}
-                      <Link
-                        className="text-red-700 hover:underline"
-                        href={`/dashboard/bishop/homily/${a.slug}?delete=1`}
-                      >
-                        Delete
-                      </Link>
+                      <div>
+                        <ConfirmDelete
+                          title="Delete Homily"
+                          message={`This will permanently delete “${a.title}”.`}
+                          busyText="Deleting..."
+                          id={a.id}
+                          module="homily"
+                        />
+                      </div>
                     </div>
                   </td>
                 </tr>

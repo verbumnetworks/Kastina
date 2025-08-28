@@ -1,44 +1,69 @@
-export const team = [
+interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+}
+
+export const team: TeamMember[] = [
   {
-    name: 'Jocelyn Schleifer',
-    role: 'Software Engineer',
-    image: '/assets/bishop.png',
-    bg: 'bg-[#B8D8EA]',
+    id: 1,
+    role: "Procurator",
+    name: "Fr. Ibeh Cyril",
+    image: "/assets/offices/procurator.jpg",
   },
   {
-    name: 'Martin Donin',
-    role: 'Software Engineer',
-    image: '/assets/bishop.png',
-    bg: 'bg-[#F7C7C1]',
+    id: 2,
+    role: "Vocation Director",
+    name: "Fr. Nura Emmanuel",
+    image: "/assets/offices/vocation.jpg",
   },
   {
-    name: 'Jordyn Septimus',
-    role: 'Software Engineer',
-    image: '/assets/bishop.png',
-    bg: 'bg-[#F8D39D]',
+    id: 3,
+    role: "Marriage Tribunal",
+    name: "Msgr. Atado Joseph",
+    image: "/assets/offices/tribunal.jpg",
   },
   {
-    name: 'Leo Allen',
-    role: 'Software Engineer',
-    image: '/assets/bishop.png',
-    bg: 'bg-[#E0C7F7]',
+    id: 4,
+    role: "Justice, Development & Peace Commission (JDPC)",
+    name: "Fr. Chibi Samaila",
+    image: "/assets/offices/jdpc.jpg",
   },
   {
-    name: 'Sarah Nnamdi',
-    role: 'Software Engineer',
-    image: '/assets/bishop.png',
-    bg: 'bg-[#FAD5C6]',
+    id: 5,
+    role: "Communications",
+    name: "Fr. Chibuzor Victor",
+    image: "/assets/offices/communications.jpg",
   },
   {
-    name: 'Yumi Sato',
-    role: 'Software Engineer',
-    image: '/assets/bishop.png',
-    bg: 'bg-[#C6B7FB]',
+    id: 6,
+    role: "Education",
+    name: "Msgr. Atado Joseph",
+    image: "/assets/offices/education.jpg",
   },
   {
-    name: 'Daniel Eckhart',
-    role: 'Software Engineer',
-    image: '/assets/bishop.png',
-    bg: 'bg-[#C5FAD5]',
+    id: 7,
+    role: "Catechists",
+    name: "Fr. Kelvin Obineche",
+    image: "/assets/offices/catechists.jpg",
   },
-]
+  {
+    id: 8,
+    role: "Diocesan Liturgies",
+    name: "Fr. Ochekwu John",
+    image: "/assets/offices/liturgy.jpg",
+  },
+  {
+    id: 9,
+    role: "Pontifical Mission Societies (P.M.S.)",
+    name: "Fr. Abubakar Musa",
+    image: "/assets/offices/pms.jpg",
+  },
+  {
+    id: 10,
+    role: "Diocesan Auditor",
+    name: "Mr. Sylvester Dogo",
+    image: "/assets/offices/auditor.jpg",
+  },
+];
