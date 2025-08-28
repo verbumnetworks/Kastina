@@ -39,7 +39,7 @@ export default async function AnnouncementDetailPage({ params }: Props) {
             href="/announcement"
             className="inline-flex items-center gap-2 text-[#c6a70e] hover:underline"
           >
-            <span aria-hidden>←</span> Back to all Announcements
+            <span aria-hidden>←</span> Back 
           </Link>
         </div>
 
