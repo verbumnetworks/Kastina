@@ -183,25 +183,49 @@ export default function NewHomilyPage() {
             <span className="text-red-500 text-sm">{errors.date}</span>
           )}
         </div>
-
         <div>
-          <label className="block text-sm font-medium">Image URL</label>
-          <input
-            name="image"
-            placeholder="upload an image"
-            className="mt-1 w-full rounded-lg border px-3 py-2"
-          />
+          <label className="block text-sm font-medium">Image</label>
+          <ImageKitProvider
+            publicKey={publicKey}
+            urlEndpoint={urlEndpoint}
+            authenticator={getImageAuth}
+          >
+            <IKUpload
+              folder={"/katsina/homily"}
+              onSuccess={onImageUploadSuccess}
+              onError={onImageUploadError}
+              className="mt-1 w-full rounded-lg border px-3 py-2"
+            />
+          </ImageKitProvider>
+          {/* end of image upload part */}
+          {/* Below serves as an image preview of the uploaded image */}
+          {formData.image && (
+            <div className="mt-2">
+              <Image
+                src={formData.image}
+                alt="Preview"
+                width={100}
+                height={100}
+                loading="lazy"
+                className="h-20 w-20 object-cover"
+              />
+            </div>
+          )}
         </div>
 
         <div>
           <label className="block text-sm font-medium">Short description</label>
           <textarea
             name="summary"
+            value={formData.summary}
+            onChange={handleChange}
             rows={3}
             className="mt-1 w-full rounded-lg border px-3 py-2"
           />
         </div>
-
+        {errors.summary && (
+          <span className="text-red-500 text-sm">{errors.summary}</span>
+        )}
         <div>
           <label className="block text-sm font-medium">Details</label>
           <textarea
@@ -210,13 +234,17 @@ export default function NewHomilyPage() {
             className="mt-1 w-full rounded-lg border px-3 py-2"
           />
         </div>
+        {errors.content && (
+          <span className="text-red-500 text-sm">{errors.content}</span>
+        )}
 
         <div className="flex gap-3">
           <button
             type="submit"
-            className="rounded-lg border px-4 py-2 hover:bg-slate-50"
+            disabled={isSubmitting}
+            className="rounded-lg border px-4 py-2 hover:bg-slate-50 disabled:opacity-50"
           >
-            Save
+            {isSubmitting ? "Saving..." : "Save"}
           </button>
         </div>
       </form>
