@@ -22,44 +22,6 @@ export default async function DashboardHome() {
         <CardStat label="Clergy" value={clergyCount} />
 
       </div>
-
-      {/* Latest announcements */}
-      {/* <div className="mt-6 rounded-xl border overflow-hidden">
-        <div className="flex items-center justify-between border-b bg-slate-50 px-4 py-3">
-          <h3 className="text-sm font-semibold">Latest announcements</h3>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="min-w-full text-sm">
-            <thead>
-              <tr className="text-left text-slate-500">
-                <th className="px-4 py-3 font-medium">Title</th>
-                <th className="px-4 py-3 font-medium">Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {latestAnn.map((a) => (
-                <tr key={a.slug} className="border-t">
-                  <td className="px-4 py-3">{a.title}</td>
-                  <td className="px-4 py-3">
-                    {a.date.toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
-                  </td>
-                </tr>
-              ))}
-              {latestAnn.length === 0 && (
-                <tr>
-                  <td className="px-4 py-6 text-slate-500" colSpan={2}>
-                    Nothing yet. Create your first announcement.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-      </div> */}
     </div>
   );
 }
