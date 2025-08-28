@@ -68,14 +68,11 @@ export async function deleteClergy(id: string) {
    ========================= */
 const isObjectId = (v: string) => /^[a-f0-9]{24}$/i.test(v);
 
-export async function deleteEvent(formData: FormData) {
-  const key = String(formData.get("key") ?? "");
-  if (!key) return;
-
-  const where = isObjectId(key) ? { id: key } : { slug: key };
+export async function deleteEvent(id: string) {
+  if (!id) return;
 
   try {
-    await prisma.event.delete({ where });
+    await prisma.event.delete({ where: {id} });
   } catch (e: any) {
     if (!isRecordNotFound(e)) throw e;
   }

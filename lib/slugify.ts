@@ -20,3 +20,5 @@ const slugifyWithUniqueSuffix = (str: string): string => {
   return `${slug}-${uniqueSuffix}`;
 };
 export default slugifyWithUniqueSuffix;
+
+export const isObjectId = (v: string) => /^[a-f0-9]{24}$/i.test(v);

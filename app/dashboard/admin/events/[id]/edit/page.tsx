@@ -1,46 +1,9 @@
-// app/dashboard/events/[id]/edit/page.tsx
+import { updateEvent } from "@/app/dashboard/actions/update";
 import prisma from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
-import { redirect, notFound } from "next/navigation";
+import { isObjectId } from "@/lib/slugify";
+import { notFound } from "next/navigation";
 
 type PageProps = { params: Promise<{ id: string }> };
-
-const isObjectId = (v: string) => /^[a-f0-9]{24}$/i.test(v);
-
-async function updateEvent(key: string, formData: FormData) {
-  "use server";
-
-  const title   = String(formData.get("title") ?? "").trim();
-  const dateStr = String(formData.get("date") ?? "").trim();
-  const excerpt = String(formData.get("excerpt") ?? "").trim();
-  const cover   = String(formData.get("cover") ?? "").trim();
-  const images  = String(formData.get("images") ?? "")
-    .split(",")
-    .map(s => s.trim())
-    .filter(Boolean);
-  const content = String(formData.get("content") ?? "")
-    .split("\n")
-    .map(s => s.trim())
-    .filter(Boolean);
-
-  const where = isObjectId(key) ? { id: key } : { slug: key };
-
-  const updated = await prisma.event.update({
-    where,
-    data: {
-      title,
-      date: dateStr ? new Date(dateStr) : undefined,
-      excerpt,
-      cover,
-      images,
-      content,
-    },
-  });
-
-  revalidatePath("/dashboard/events");
-  // Redirect to the canonical slug route (view page)
-  redirect(`/dashboard/events/${updated.slug}`);
-}
 
 export default async function EditEventPage({ params }: PageProps) {
   const { id: key } = await params;

@@ -1,13 +1,12 @@
+import { deleteEvent } from "@/app/dashboard/actions/delete";
 import prisma from "@/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
-
-type PageProps = { params: Promise<{ slug: string }> };
+import { notFound } from "next/navigation";
+type PageProps = { params: Promise<{ id: string }> };
 
 export async function generateMetadata({ params }: PageProps) {
-  const { slug } = await params;
+  const { id: slug } = await params;
   const ev = await prisma.event.findUnique({
     where: { slug },
     select: { title: true, excerpt: true, cover: true },
@@ -25,29 +24,11 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 // Server action: delete event
-async function deleteEvent(slug: string) {
-  "use server";
-  await prisma.event.delete({ where: { slug } });
-  revalidatePath("/dashboard/events");
-  redirect("/dashboard/events");
-}
-
 export default async function AdminEventViewPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { id: slug } = await params;
   if (!slug) return notFound();
   const ev = await prisma.event.findUnique({
-    where: { slug },
-    select: {
-      slug: true,
-      title: true,
-      date: true,
-      excerpt: true,
-      cover: true,
-      images: true,
-      content: true,
-      createdAt: true,
-      updatedAt: true,
-    },
+    where: { slug }
   });
 
   if (!ev) return notFound();
@@ -75,13 +56,13 @@ export default async function AdminEventViewPage({ params }: PageProps) {
 
         <div className="flex gap-2">
           <Link
-            href="/dashboard/events"
+            href="/dashboard/admin/events"
             className="rounded-lg border px-3 py-1.5 text-sm hover:bg-slate-50"
           >
             ← Back
           </Link>
           <Link
-            href={`/dashboard/events/${ev.slug}/edit`}
+            href={`/dashboard/admin/events/${ev.slug}/edit`}
             className="rounded-lg border px-3 py-1.5 text-sm hover:bg-slate-50"
           >
             Edit
@@ -89,13 +70,7 @@ export default async function AdminEventViewPage({ params }: PageProps) {
 
           {/* Delete (server action + confirm) */}
           <form
-            action={deleteEvent.bind(null, ev.slug)}
-            onSubmit={(e) => {
-              // simple browser confirm; replace with a fancy modal if you prefer
-              if (!confirm("Delete this event? This cannot be undone.")) {
-                e.preventDefault();
-              }
-            }}
+            action={deleteEvent.bind(null, ev.id)}
           >
             <button
               type="submit"
