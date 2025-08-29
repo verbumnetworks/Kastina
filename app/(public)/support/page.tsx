@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 const bankDetails = [
   {
     bank: 'First Bank of Nigeria',
