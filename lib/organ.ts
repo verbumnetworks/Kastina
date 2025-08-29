@@ -90,7 +90,7 @@ export const piousOrganizations: PiousOrganization[] = [
   {
     id: 11,
     title: "Marian Devotees / Block Rosary",
-    image: "/assets/blockrosary.jpeg",
+    image: "/assets/pic23.jpg",
     description:
       "A prayer group dedicated to Marian devotion through the daily recitation of the Rosary.",
     chaplain: "Fr. Bakoshi Mathais",

@@ -24,9 +24,9 @@ export default function ButtonLink({
 
   const variants = {
     primary:
-'bg-gradient-to-r from-[#800000] via-[#D0AE55] to-[#0B7A3E] text-white hover:opacity-90',
+'bg-gradient-to-r from-[#DAA520] to-[#E6BE8A] text-white hover:opacity-90',
     secondary:
-      'border border-yellow-500 text-yellow-600 hover:bg-yellow-600 hover:text-white',
+      'border border-[#E6BE8A] text-[#228B22] hover:bg-[#DAA520] hover:text-white',
   }
 
   return (

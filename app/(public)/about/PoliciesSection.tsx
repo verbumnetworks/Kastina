@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function PoliciesSection() {
   return (
-    <section className="relative bg-blue-900 py-16 px-4 overflow-hidden">
+    <section className="relative bg-green-900 py-16 px-4 overflow-hidden">
       {/* Watermark Logo */}
       <div
         className="absolute inset-0 opacity-5 bg-no-repeat bg-center bg-cover bg-[url('/assets/logo.jpg')] bg-fixed "

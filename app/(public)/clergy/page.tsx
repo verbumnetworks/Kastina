@@ -1,9 +1,12 @@
 import prisma from "@/lib/prisma";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import TeamSection from "./TeamSection";
+import PageBanner from "@/app/components/banner/PageBanner";
+
 
 // Constants
-const ITEMS_PER_PAGE = 3;
+const ITEMS_PER_PAGE = 6;
 
 export default async function ClergyDirectory({
   searchParams,
@@ -40,9 +43,16 @@ export default async function ClergyDirectory({
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
 
   return (
+    <main>
+      <PageBanner
+      title="Priests, Chaplains, and Offices; Catholic Diocese of Katsina"
+subtitle="A complete directory of clergy and pastoral leadership"
+      />
     <section className="bg-white px-4 py-12">
+            <TeamSection/>
+
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Clergy and Lay Chaplains</h2>
+
 
         {/* Search Form */}
         <form className="flex flex-col sm:flex-row items-center gap-4 mb-8">
@@ -122,5 +132,6 @@ export default async function ClergyDirectory({
         </div>
       </div>
     </section>
+    </main>
   );
 }

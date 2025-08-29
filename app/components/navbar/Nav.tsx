@@ -7,20 +7,25 @@ import { IoMdMenu, IoMdClose } from "react-icons/io";
 import DonateButton from "../button/DonateButton";
 import { cinzel } from "@/font";
 
-interface NavItem { id: number; label: string; href?: string; }
+interface NavItem {
+  id: number;
+  label: string;
+  href?: string;
+}
 
 const navLinks: NavItem[] = [
-  { id: 1, label: "Home", href: "/" },
-  { id: 2, label: "About", href: "/about" },
-  { id: 3, label: "Catechetical", href: "/catechetical" },
+  // { id: 1, label: "Home", href: "/" },
+  { id: 1, label: "About", href: "/about" },
+  { id: 2, label: "Bishop", href: "/bishop" },
+  { id: 3, label: "Clergy", href: "/clergy" },
   { id: 4, label: "Societies", href: "/people" },
-  { id: 5, label: "Blogs", href: "/blog" },
-  { id: 6, label: "Contact", href: "/contact" },
+  { id: 5, label: "Catechetical", href: "/catechetical" },
+  { id: 6, label: "Blog", href: "/blog" },
   { id: 7, label: "Gallery", href: "/gallery" },
-  { id: 8, label: "Clergy", href: "/clergy" },
-  { id: 9, label: "Events", href: "/event" },
-  {id:10, label: "Announcements", href:"/announcement"}
+  { id: 8, label: "Events", href: "/event" },
+  { id: 9, label: "Contact", href: "/contact" },
 
+  // { id: 10, label: "Announcements", href: "/announcement" },
 ];
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -35,20 +40,24 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 w-full shadow-md">
       {/* Top Bar */}
-      <div className="w-full bg-[#000] px-4 sm:px-6 md:px-12 lg:px-16 flex justify-between items-center py-2 text-[#d0AE55]">
-        <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
+      <div className="w-full bg-[#000] px-4 sm:px-6 md:px-12 lg:px-16 flex justify-between items-center py-2 text-[#fee907]">
+        <Link
+          href="/"
+          className="flex items-center gap-2"
+          onClick={() => setMobileOpen(false)}
+        >
           <Image
             src="/assets/logo.jpg"
             alt="Logo"
-            width={500}
-            height={500}
-
+            width={300}
+            height={300}
+            loading="lazy"
             className="object-cover w-10 md:w-20"
           />
         </Link>
 
         <h1
-          className={`${cinzel.className} font-semibold text-base sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl leading-snug text-center flex-1 px-2 truncate`}
+          className={`${cinzel.className} font-semibold text-base sm:text-sm md:text-4xl lg:text-5xl leading-snug text-center flex-1 px-2 truncate`}
           title="Catholic Diocese of Katsina"
         >
           Catholic Diocese of Katsina
@@ -56,13 +65,31 @@ const Navbar = () => {
 
         {/* Social Icons (desktop) */}
         <div className="hidden md:flex items-center gap-4 md:text-lg">
-          <Link href="https://www.facebook.com/share/1649DPp6zj/" aria-label="Facebook"><FaFacebookF /></Link>
-          <Link href="https://www.instagram.com/cathdiokatcom?igsh=aGtmNzZpZmd5Ynln" aria-label="Instagram"><FaInstagram /></Link>
-          <Link href="https://www.youtube.com/@katsinacatholicdiocese?si=YWujbpQeJGRAAKn4" aria-label="YouTube"><FaYoutube /></Link>
+          <Link
+            href="https://www.facebook.com/share/1649DPp6zj/"
+            aria-label="Facebook" target="_blank"
+          >
+            <FaFacebookF />
+          </Link>
+          <Link
+            href="https://www.instagram.com/cathdiokatcom?igsh=aGtmNzZpZmd5Ynln"
+            aria-label="Instagram" target="_blank"
+          >
+            <FaInstagram />
+          </Link>
+          <Link
+            href="https://www.youtube.com/@katsinacatholicdiocese?si=YWujbpQeJGRAAKn4"
+            aria-label="YouTube" target="_blank"
+          >
+            <FaYoutube />
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden text-2xl" onClick={() => setMobileOpen(!mobileOpen)}>
+        <button
+          className="md:hidden text-2xl"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
           {mobileOpen ? <IoMdClose /> : <IoMdMenu />}
         </button>
       </div>
@@ -108,9 +135,24 @@ const Navbar = () => {
               <DonateButton className="w-full mt-2 bg-yellow-600 text-white py-2 rounded text-center font-semibold" />
             </li>
             <div className="flex gap-4 pt-4 border-t border-gray-300">
-              <a href="https://www.facebook.com/share/1649DPp6zj/" aria-label="Facebook"><FaFacebookF /></a>
-              <a href="https://www.instagram.com/cathdiokatcom?igsh=aGtmNzZpZmd5Ynln" aria-label="Instagram"><FaInstagram /></a>
-              <a href="https://youtube.com/@katsinacatholicdiocese?si=YWujbpQeJGRAAKn4" aria-label="YouTube"><FaYoutube /></a>
+              <a
+                href="https://www.facebook.com/share/1649DPp6zj/"
+                aria-label="Facebook"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                href="https://www.instagram.com/cathdiokatcom?igsh=aGtmNzZpZmd5Ynln"
+                aria-label="Instagram"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://youtube.com/@katsinacatholicdiocese?si=YWujbpQeJGRAAKn4"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
+              </a>
             </div>
           </ul>
         </div>

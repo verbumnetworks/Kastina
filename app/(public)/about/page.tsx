@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-
-import PageBanner from '../../components/banner/PageBanner'; 
-import HistorySection from './History';
-import DeaneriesSection from './Parishes';
-import PoliciesSection from './PoliciesSection';
-import AboutBishopPreview from './AboutBishop';
+import PageBanner from "../../components/banner/PageBanner";
+import HistorySection from "./History";
+import DeaneriesSection from "./Parishes";
+import PoliciesSection from "./PoliciesSection";
+import AboutBishopPreview from "./AboutBishop";
+import CoatOfArmsSection from "./CoatOfArm";
 
 // const ministries = [
 //   {
@@ -28,16 +28,15 @@ import AboutBishopPreview from './AboutBishop';
 export default function page() {
   return (
     <section>
-         <PageBanner
+      <PageBanner
         title="About Us"
         subtitle="Learn more about our mission and values"
-        backgroundImage="/assets/popeleo3.jpeg"
       />
       <HistorySection />
-      <AboutBishopPreview/>
-      <DeaneriesSection/>
+      <AboutBishopPreview />
+      <CoatOfArmsSection />
+      <DeaneriesSection />
       <PoliciesSection />
-    
     </section>
   );
 }

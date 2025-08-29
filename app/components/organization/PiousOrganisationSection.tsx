@@ -6,15 +6,8 @@ import { piousOrganizations } from '@/lib/organ';
 
 export default function PiousOrganizationsSection() {
   return (
-    <section className="py-16 px-4 bg-gray-100">
+    <section className="py-16 px-4">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
-          Chaplains, Societies & Organizations in the Catholic Diocese of Katsina
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          These organizations contribute immensely to the spiritual and social life of the Diocese through prayer, outreach, and devotion.
-        </p>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-12">
           {piousOrganizations.map((org, i) => (
             <motion.div
@@ -31,7 +24,7 @@ export default function PiousOrganizationsSection() {
                   src={org.image}
                   alt={org.title}
                   fill
-                  className="object-cover rounded-lg"
+                  className="object-cover rounded-t-lg"
                   quality={90}
                   loading="lazy"
                   decoding="async"
@@ -40,11 +33,11 @@ export default function PiousOrganizationsSection() {
                 />
               </div>
 
-              <h3 className="text-xl font-semibold mb-2">{org.title}</h3>
+              <div className='px-2 py-2'><h3 className="text-xl font-semibold mb-2">{org.title}</h3>
               <p className="text-sm text-gray-700 mb-2">{org.description}</p>
-              <p className="text-sm font-medium text-amber-700">
+              <p className="text-sm font-medium text-[#228B22]">
                 Chaplain: {org.chaplain}
-              </p>
+              </p></div>
             </motion.div>
           ))}
         </div>

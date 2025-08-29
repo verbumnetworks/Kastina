@@ -15,7 +15,7 @@ export default async function UpcomingAnnouncementsSection() {
     <section className="bg-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <SectionHeading
-          title="  Upcoming Diocesean Events"
+          title="  Upcoming Diocesan Events"
           subtitle="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         />
 
@@ -44,7 +44,7 @@ export default async function UpcomingAnnouncementsSection() {
                 <p className="text-sm text-gray-700 mb-4 line-clamp-3">{item.description}</p>
                 <Link
                   href={`/announcement/${item.slug}`}
-                  className="text-blue-700 font-medium text-sm hover:underline"
+                  className="text-[#007955] font-medium text-sm hover:underline"
                 >
                   View Details →
                 </Link>
