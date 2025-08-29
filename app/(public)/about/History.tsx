@@ -6,10 +6,10 @@ import { useEffect, useState } from "react";
 import ButtonLink from "../../components/button/Button";
 
 const counters = [
-  { label: "CATHOLICS", value: 590000, suffix: "k", display: 590 },
-  { label: "RELIGIOUS", value: 850, suffix: "", display: 850 },
-  { label: "PRIESTS", value: 400, suffix: "", display: 400 },
-  { label: "PARISHES", value: 125, suffix: "", display: 125 },
+  { label: "CATHOLICS", value: 19000, suffix: "k", display: 19 },
+  { label: "RELIGIOUS", value: 10, suffix: "", display: 10 },
+  { label: "PRIESTS", value: 33, suffix: "", display: 33 },
+  { label: "PARISHES", value: 20, suffix: "", display: 20 },
 ];
 
 const HistorySection = () => {

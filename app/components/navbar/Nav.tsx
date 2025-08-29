@@ -101,7 +101,7 @@ const Navbar = () => {
         }`}
       >
         <nav className="flex items-center justify-center px-4 py-3 lg:px-12">
-          <ul className="flex items-center gap-6 text-lg font-bold">
+          <ul className="flex items-center gap-6 text-lg font-semibold">
             {navLinks.map((item) => (
               <li key={item.id} className="relative">
                 <Link

@@ -1,5 +1,6 @@
 'use client';
 
+import { cormorant } from '@/font';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -35,7 +36,7 @@ export default function PageBanner({
         transition={{ duration: 0.8 }}
         className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
       >
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-md">
+        <h1 className={`${cormorant.className} text-2xl md:text-5xl font-bold text-white drop-shadow-md`}>
           {title}
         </h1>
         {subtitle && (

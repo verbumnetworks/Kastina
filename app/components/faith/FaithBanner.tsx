@@ -4,9 +4,9 @@ import { Typewriter } from 'react-simple-typewriter';
 
 export default function FaithBanner() {
   return (
-    <section className="relative w-full h-[30vh] md:h-[50vh] flex items-center justify-center text-center overflow-hidden bg-[url('/assets/popeleo2.jpeg')] bg-cover bg-center bg-fixed">
+    <section className="relative w-full h-[30vh] md:h-[60vh] flex items-center justify-center text-center overflow-hidden bg-[url('/assets/popeleo2.jpeg')] bg-cover bg-center bg-fixed object-cover bg-no-repeat">
       {/* Blue Overlay */}
-      <div className="absolute inset-0 bg-[#800000] opacity-80
+      <div className="absolute inset-0 bg-[#2b1616] opacity-20
 " />
 
       {/* Text Content */}
