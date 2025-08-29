@@ -51,7 +51,7 @@ const HistorySection = () => {
             transition={{ duration: 0.7 }}
           >
             <Image
-              src="/assets/popeleo3.jpeg"
+              src="/assets/pic2.jpg"
               alt="Map of Archdiocese"
               width={600}
               height={400}

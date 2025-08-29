@@ -15,28 +15,28 @@ const bankDetails = [
   },
 ];
 
-const projects = [
-  {
-    title: 'Cathedral Renovation',
-    image: '/assets/popeleo1.jpeg',
-    need: 'To restore the historic structure and expand seating capacity. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.            lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  },
-  {
-    title: 'Support Seminarians',
-    image: '/assets/groto.jpg',
-    need: 'To provide food, books, and seminary training materials. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.           lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  },
-  {
-    title: 'Mission Schools',
-    image: '/assets/building2.jpg',
-    need: 'To equip classrooms and build rural schools. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.           lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.         lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  },
-  {
-    title: 'Pastoral Centre Construction',
-    image: '/assets/building1.jpg',
-    need: 'For site preparation and phase 1 construction.   lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.           lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.S',
-  },
-];
+// const projects = [
+//   {
+//     title: 'Cathedral Renovation',
+//     image: '/assets/popeleo1.jpeg',
+//     need: 'To restore the historic structure and expand seating capacity. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.            lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//   },
+//   {
+//     title: 'Support Seminarians',
+//     image: '/assets/groto.jpg',
+//     need: 'To provide food, books, and seminary training materials. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.           lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//   },
+//   {
+//     title: 'Mission Schools',
+//     image: '/assets/building2.jpg',
+//     need: 'To equip classrooms and build rural schools. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.           lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.         lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//   },
+//   {
+//     title: 'Pastoral Centre Construction',
+//     image: '/assets/building1.jpg',
+//     need: 'For site preparation and phase 1 construction.   lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.           lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.S',
+//   },
+// ];
 
 export default function DonatePage() {
   return (
@@ -73,7 +73,7 @@ export default function DonatePage() {
         </section>
 
         {/* Projects Needing Support */}
-        <section>
+       {/* <section>
           <h2 className="text-2xl font-semibold text-blue-900 mb-6">Projects Needing Support</h2>
           <div className="grid gap-8 md:grid-cols-2">
             {projects.map((proj, idx) => (
@@ -97,6 +97,7 @@ export default function DonatePage() {
             ))}
           </div>
         </section>
+*/}
 
         {/* Closing */}
         <section className="text-center">
