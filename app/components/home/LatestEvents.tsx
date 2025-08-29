@@ -1,9 +1,14 @@
 import EventGrid from "@/app/(public)/event/EventGrid";
-import { events } from "@/lib/events";
+
 import AnimatedButton from "../button/Button";
 import SectionHeading from "../heading/SectionHeading";
+import prisma from "@/lib/prisma";
 
-export default function LatestEvents() {
+export default async function LatestEvents() {
+  const events = await prisma.event.findMany({
+    take: 4,
+    orderBy: { date: "desc" }
+  })
   return (
     <section className="mx-auto max-w-6xl px-4 py-12">
       <div className="text-center space-y-4">
@@ -14,16 +19,10 @@ export default function LatestEvents() {
       </div>
 
       <div className="mt-8">
-        <EventGrid items={events.slice(0, 2)} />
+        <EventGrid items={events} />
       </div>
 
       <div className="mt-8 text-center">
-        {/* <Link
-          href="/event"
-          className="inline-block rounded-lg border px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50"
-        >
-          View all events
-        </Link> */}
         <AnimatedButton
           href="/event"
           label=" View All Events"
