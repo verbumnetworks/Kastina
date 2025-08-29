@@ -1,104 +1,9 @@
-import prisma from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
-import ImageKit from "imagekit";
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// Initialize ImageKit client
-const imagekit = new ImageKit({
-  publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY!,
-  privateKey: process.env.PRIVATE_KEY!,
-  urlEndpoint: process.env.NEXT_PUBLIC_URL_ENDPOINT!,
-});
-
-// Server action to create an event with image uploads
-async function createEvent(formData: FormData) {
-  "use server";
-
-  // Extract text fields
-  const title = String(formData.get("title") || "").trim();
-  const slug = String(formData.get("slug") || "").trim();
-  const dateStr = String(formData.get("date") || "").trim();
-  const excerpt = String(formData.get("excerpt") || "").trim();
-  const content = String(formData.get("content") || "").split("\n").map(c => c.trim());
-
-  // Validate required text fields
-  if (!title || !slug || !dateStr) {
-    throw new Error("Title, slug, and date are required");
-  }
-
-  // Validate date
-  const date = new Date(dateStr);
-  if (isNaN(date.getTime())) {
-    throw new Error("Invalid date format");
-  }
-
-  // Handle cover image upload
-  const coverFile = formData.get("cover");
-  let coverUrl = "";
-  if (coverFile instanceof File && coverFile.size > 0) {
-    try {
-      const arrayBuffer = await coverFile.arrayBuffer();
-      const buffer = Buffer.from(arrayBuffer);
-      const uploadResponse = await imagekit.upload({
-        file: buffer,
-        fileName: `event-cover-${slug}-${Date.now()}.${coverFile.name.split(".").pop()}`,
-        folder: "/events/covers",
-      });
-      coverUrl = uploadResponse.url;
-    } catch (error: any) {
-      throw new Error(`Failed to upload cover image: ${error.message}`);
-    }
-  } else {
-    throw new Error("Cover image is required");
-  }
-
-  // Handle additional images upload
-  const imageFiles = formData.getAll("images");
-  const imageUrls = [];
-  for (const file of imageFiles) {
-    if (file instanceof File && file.size > 0) {
-      try {
-        const arrayBuffer = await file.arrayBuffer();
-        const buffer = Buffer.from(arrayBuffer);
-        const uploadResponse = await imagekit.upload({
-          file: buffer,
-          fileName: `event-image-${slug}-${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${file.name.split(".").pop()}`,
-          folder: "/katsina/events",
-        });
-        imageUrls.push(uploadResponse.url);
-      } catch (error: any) {
-        throw new Error(`Failed to upload image: ${error.message}`);
-      }
-    }
-  }
-
-  // Create event in Prisma
-  try {
-    await prisma.event.create({
-      data: {
-        title,
-        slug,
-        date,
-        excerpt,
-        cover: coverUrl,
-        images: imageUrls,
-        content,
-      },
-    });
-  } catch (error: any) {
-    throw new Error(`Failed to create event: ${error.message}`);
-  }
-
-  // Revalidate and redirect
-  revalidatePath("/dashboard/events");
-  redirect("/dashboard/events");
-}
+import { createEvent } from "@/app/dashboard/actions/create";
 
 export default function NewEventPage() {
   return (
     <div className="max-w-2xl mx-auto p-6">
       <h2 className="text-xl font-semibold mb-4">New Event</h2>
-
       <form action={createEvent} className="space-y-4" encType="multipart/form-data">
         <div>
           <label htmlFor="title" className="block text-sm font-medium text-slate-700">Title</label>
@@ -110,7 +15,6 @@ export default function NewEventPage() {
             required
           />
         </div>
-
         <div>
           <label htmlFor="slug" className="block text-sm font-medium text-slate-700">Slug</label>
           <input
