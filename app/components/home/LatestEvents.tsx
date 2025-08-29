@@ -8,8 +8,7 @@ export default function LatestEvents() {
     <section className="mx-auto max-w-6xl px-4 py-12">
       <div className="text-center space-y-4">
         <SectionHeading
-          title="Latest  Diocesean Events"
-          
+          title="Latest Diocesan Events"
           subtitle="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         />
       </div>

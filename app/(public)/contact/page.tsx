@@ -15,7 +15,7 @@ export default function Page() {
       <section className="py-16 px-4 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-10">
           {/* Contact Form */}
-          <form className="space-y-6 bg-white p-6 shadow rounded">
+          <form  className="space-y-6 bg-white p-6 shadow rounded">
             <h2 className="text-2xl font-semibold text-[#0C1A2B]">
               Send Us a Message
             </h2>
@@ -45,7 +45,7 @@ export default function Page() {
             </div>
             <button
               type="submit"
-              className="bg-[#B59F6C] text-white px-6 py-2 rounded hover:bg-[#a08b55] transition"
+              className="bg-[#DAA520] text-white px-6 py-2 rounded hover:bg-[#caa547] transition"
             >
               Send Message
             </button>
@@ -57,15 +57,19 @@ export default function Page() {
               Get in Touch
             </h2>
             <div className="flex items-start gap-4">
-              <FaMapMarkerAlt className="text-[#B59F6C] mt-1" />
-              <p>123 Cathedral Road, Enugu, Nigeria</p>
+              <FaMapMarkerAlt className="text-[#DAA520] mt-1" />
+              <p>St. Martin De Porres Catholic Cathedral Church</p>{" "}
             </div>
             <div className="flex items-start gap-4">
-              <FaPhone className="text-[#B59F6C] mt-1" />
+              <FaMapMarkerAlt className="text-[#DAA520] mt-1" />
+              <p>Katsina, Katsina State, Nigeria</p>{" "}
+            </div>
+            <div className="flex items-start gap-4">
+              <FaPhone className="text-[#DAA520] mt-1" />
               <p>+234 810 646 4244</p>
             </div>
             <div className="flex items-start gap-4">
-              <FaEnvelope className="text-[#B59F6C] mt-1" />
+              <FaEnvelope className="text-[#DAA520] mt-1" />
               <p>cathdiokatcomm@gmail.com</p>
             </div>
           </div>

@@ -1,10 +1,15 @@
 'use client';
 
+import PageBanner from '@/app/components/banner/PageBanner';
 import Image from 'next/image';
 
 export default function BishopPage() {
   return (
-    <section className="bg-[#f9f9f9] py-16 px-4">
+    <main>
+        <PageBanner
+              title='Our Bishop'/>
+    
+    <section className=" py-16 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Top Section: Image + Title Side by Side */}
         <div className="flex flex-col md:flex-row items-center gap-6 mb-12">
@@ -88,5 +93,6 @@ export default function BishopPage() {
         </div>
       </div>
     </section>
+    </main>
   );
 }

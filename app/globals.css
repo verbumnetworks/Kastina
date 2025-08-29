@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+html{
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar-track {
+  background: #05ad0e; /* Track color */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DAA520; /* Gold */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #caa547; /* Darker gold */
+}
 
 
 @theme inline {

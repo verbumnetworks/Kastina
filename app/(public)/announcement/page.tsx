@@ -6,9 +6,9 @@ import prisma from "@/lib/prisma";
 export default async function AnnouncementsPage() {
     const announcements = await prisma.announcement.findMany();
   return (
-    <main className="bg-gray-100 ">
+    <main>
         <PageBanner
-        title=' Upcoming Diocesean Events'/>
+        title=' Upcoming Diocesan Events'/>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 py-12 px-4">
         {/* Main Announcement Content */}
         <div className="lg:col-span-2 space-y-10">

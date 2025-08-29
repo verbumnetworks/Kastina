@@ -1,7 +1,6 @@
 import prisma from "@/lib/prisma";
 // import About from "../components/home/About";
 import BishopSection from "../components/home/Bishop";
-import CoatOfArmsSection from "../components/home/CoatOfArm";
 import Hero from "../components/home/Hero";
 import LatestHomilies from "../components/home/LatestHomilies";
 import UpcomingAnnouncementsSection from "../components/home/UpcomingAnnouncementsSection";
@@ -25,7 +24,6 @@ export default async function Home() {
       <main className="">
         <Hero />
         <BishopSection />
-        <CoatOfArmsSection />
         {/* <About /> */}
         <LatestHomilies homilies={homilies} />
         <LatestEvents />

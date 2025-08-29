@@ -6,7 +6,7 @@ import AnimatedButton from "../button/Button";
 
 const BishopSection = () => {
   return (
-    <section className="w-full py-16 px-4 md:px-20  bg-[#f7f5e8]">
+    <section className="w-full py-16 px-4 md:px-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Text Section with Animation */}
         <motion.div
@@ -15,7 +15,7 @@ const BishopSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl md:text-4xl text-center font-bold mb-4">
+          <h2 className="text-2xl md:text-5xl text-center font-bold mb-4">
             Welcome Address
           </h2>
           <p className="mb-6 text-justify leading-relaxed">

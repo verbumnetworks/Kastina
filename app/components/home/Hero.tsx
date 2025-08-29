@@ -1,8 +1,11 @@
 "use client";
 
+import { cormorant } from "@/font";
 import { useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -43,7 +46,7 @@ export default function HeroCarousel() {
               {/* Text Content */}
               <div className="hidden md:flex-1 md:flex flex-col justify-center items-center text-center px-6 md:px-16 bg-white">
                 <motion.h2
-                  className="text-4xl md:text-6xl font-extrabold"
+                  className={`${cormorant.className} text-4xl md:text-6xl font-extrabold`}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
@@ -96,8 +99,12 @@ export default function HeroCarousel() {
         ))}
 
         {/* Custom Navigation Arrows */}
-        <div className="swiper-button-prev !text-black !font-bold !text-2xl md:!text-4xl z-30" />
-        <div className="swiper-button-next !text-black !font-bold !text-2xl md:!text-4xl z-30" />
+        <div className="swiper-button-prev !flex !items-center !justify-center !text-black !text-3xl z-30">
+          <ChevronLeft />
+        </div>
+        <div className="swiper-button-next !flex !items-center !justify-center !text-yellow-500 !text-3xl z-30">
+          <ChevronRight />
+        </div>
 
         {/* Progress Bar */}
         <div className="absolute top-0 left-0 h-[4px] w-full bg-gray-300 z-40">
